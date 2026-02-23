@@ -1,0 +1,211 @@
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400..800&display=swap');
+@import "tailwindcss";
+@import "locomotive-scroll/dist/locomotive-scroll.css";
+
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+
+
+
+
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  overflow: hidden; /* locomotive handles scrolling */
+  cursor: none;
+  user-select: none;
+}
+
+*{
+  box-sizing: border-box;
+  /* padding: 0;
+  margin: 0; */
+  font-family: "Syne";
+}
+
+.syne-font{
+  font-family: "Syne";
+}
+
+
+:root {
+  /* font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale; */
+
+  --bg : #E6EBF4;
+  --left-card-bg: #EBF0F7;
+  --left-card-border: #EBF0F7;
+
+}
+
+
+.dark{
+  --bg: #0d0d0d;
+  --left-card-bg: #161616;
+  --left-card-border: #303033;
+}
+
+
+
+
+/* its horizontal scrollbar */
+.scrollbar-hide::-webkit-scrollbar{
+  height: 3px;
+}
+.dark .scrollbar-hide::-webkit-scrollbar-thumb{
+  background: linear-gradient(to bottom,#E3B9C2,#D0C3EB);
+  border-radius: 4px;
+}
+.scrollbar-hide::-webkit-scrollbar-thumb{
+  background: linear-gradient(to bottom,#A26DE0,#795DE2);
+  border-radius: 4px;
+}
+
+
+
+@keyframes blur {
+  0%{transform: rotate(0deg) translate(-30%,-30%);}
+  50%{transform: rotate(360deg) translate(10%,10%);}
+  100%{transform: rotate(0deg) translate(-30%,-30%);}
+}
+
+@keyframes zoom {
+  from{
+    transform: scale(0%);
+  }to{
+    transform: scale(100%);
+  }
+}
+.blur{
+  height: clamp(400px, 20vw, 60vw);
+  width: -moz-calc(clamp(400px, 30vw, 70vw) * 1.1);
+  width: calc(clamp(400px, 30vw, 70vw) * 1.1);
+  border-radius: 900px;
+  -webkit-filter: blur(clamp(40px, 7vw, 90px));
+  filter: blur(clamp(40px, 7vw, 90px));
+  z-index: 0;
+  animation: zoom 1s linear;
+}
+
+.blur-1{
+  /* blue blur on right bottom side */
+  animation: blur linear 100s infinite;
+  top: 25vh;
+  right: -5vw;
+}
+.blur-2{
+  /* yellow blur on top right */
+  animation: blur linear 120s infinite;
+  top: -20vh;
+  right: -20vw;
+}
+.blur-3{
+  /* blue blur on left top */
+  animation: blur linear 60s infinite;
+  top: 0;
+  left: 0;
+}
+
+@media (max-width:800px) {
+  .blur-1{
+  /* blue blur on right bottom side */
+  top: -20vh;
+  right: -50vw;
+}
+.blur-2{
+  /* yellow blur on top right */
+  top: 30vh;
+  left: -50vw;
+  opacity: 0.7;
+}
+.blur-3{
+  /* blue blur on left top */
+  top: 70vh;
+  left: 60vw;
+}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.splash-screen svg text,.splash-screen svg text tspan{
+    stroke: white;
+    stroke-width: 1;
+    stroke-dasharray: 820; 
+    stroke-dashoffset: 820; 
+    /* animation: splash-text-draw 1s linear forwards; */
+}
+.splash-screen .back-text{
+    fill: transparent;
+}
+.splash-screen .fill-rect {
+    height: 0;
+    /* animation: splash-fill-up 1s linear forwards 2s; */
+}
+
+@keyframes fade {
+    0%,100%{opacity: 0;}
+    50%{opacity: 1;}
+}
+
+@keyframes splash-fill-up {
+    from {
+        height: 0;
+        y: 100%; 
+  }
+    to {
+        height: 100%;
+        y: -20; 
+    }
+}
+
+
+
+.no-scrollbar::-webkit-scrollbar{
+  height: 0;
+  width: 0;
+  display: none;
+}
+
+.slim-scrollbar::-webkit-scrollbar{
+width: 2px;
+}
+.slim-scrollbar::-webkit-scrollbar-thumb{
+border-radius: 4px;
+background-color: black;
+}
+.dark{
+  .slim-scrollbar::-webkit-scrollbar-thumb{
+  background-color: #999;
+  }
+  .slim-scrollbar:hover::-webkit-scrollbar-thumb{
+  background-color: #fff;
+  }
+
+}
