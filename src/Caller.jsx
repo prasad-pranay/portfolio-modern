@@ -16,6 +16,7 @@ import gsap from 'gsap'
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { MotionPathPlugin } from "gsap/MotionPathPlugin";
 import Education from './pages/Education'
+import AboutMe from './pages/Aboutme'
 
 gsap.registerPlugin(ScrollTrigger, MotionPathPlugin);
 
@@ -39,7 +40,7 @@ function CallerPage() {
     locoRef.current = new LocomotiveScroll({
       el: scrollRef.current,
       smooth: true,
-      lerp: 0.08,
+      lerp: 0.05,
       multiplier: 1,
       smartphone: { smooth: true },
       tablet: { smooth: true },
@@ -148,6 +149,7 @@ function CallerPage() {
           <Portfolio setProjectShow={setProjectShow} />
           {/* <Resume scroller={scrollRef.current} /> */}
           <Education/>
+          <AboutMe setShowPortfolio={setShowPortfolio} setCurrentSetterTab={setCurrentSetterTab} />
           <Contact setShowLink={setShowLink} />
         </main>
       </div>

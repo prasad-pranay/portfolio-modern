@@ -27,7 +27,7 @@ const [videoLoaded, setVideoLoaded] = useState(false);
       exit={{ y: 30, opacity: 0 }}
       viewport={{ once: false, amount: 0.5 }}
       transition={{ ease: "easeInOut", duration: 1 }}
-      className="relative bg-zinc-100 dark:bg-zinc-900 rounded-2xl overflow-hidden target-hand w-full"
+      className="relative bg-zinc-100 dark:bg-zinc-900 rounded-lg overflow-hidden target-hand w-full"
       style={{ height: "350px" }}
       // onMouseEnter={handleMouseEnter}
       // onMouseLeave={handleMouseLeave}
@@ -97,7 +97,7 @@ const [videoLoaded, setVideoLoaded] = useState(false);
 
       {/* Border glow */}
       <div
-        className="absolute inset-0 rounded-2xl pointer-events-none"
+        className="absolute inset-0 rounded-lg pointer-events-none"
         style={{
           boxShadow: isHovering
             ? "inset 0 0 0 1.5px rgba(251,191,36,0.4)"

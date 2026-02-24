@@ -140,7 +140,7 @@ const Hero = ({ setCurrentSetterTab, setShowPortfolio, showLeftside }) => {
       {/* <SectionTitle title="Hey!" /> */}
       {/* big info */}
       <motion.h1 initial={{ y: 30, opacity: 0 }} whileInView={{ y: 0, opacity: 1 }} exit={{ y: 30, opacity: 0 }} viewport={{ once: false, amount: .5 }} transition={{ ease: "easeInOut", duration: 1 }}
-        className={` ${showLeftside?"xl:mt-0 lg:mt-40":"sm:mt-80 md:mt-0 md:w-[50%]"}  flex flex-col z-[100] text-6xl sm:text-7xl md:text-8xl lg:text-8xl xl:text-9xl leading-tight tracking-tight font-bold syne-font relative ${textGradientClass} `}>
+        className={` ${showLeftside?"xl:mt-0 lg:mt-40":"sm:mt-80 md:mt-0 md:w-[80%]"}  flex flex-col text-6xl sm:text-7xl md:text-8xl lg:text-8xl xl:text-9xl leading-tight tracking-tight font-bold syne-font relative ${textGradientClass} `}>
           Full-Stack 
           Developer
        </motion.h1>
