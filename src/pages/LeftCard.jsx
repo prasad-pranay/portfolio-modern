@@ -172,7 +172,8 @@ const LeftCard = ({ showLeftside, setShowleftside, chatHistory, setChatHistory }
   const askAPI = async (question) => {
 
   const res = await fetch(
-    `http://localhost:5000/ask?question=${encodeURIComponent(question)}`
+    `https://clasher.pythonanywhere.com/ask?question=${encodeURIComponent(question)}`
+    // `http://localhost:5000/ask?question=${encodeURIComponent(question)}`
   );
 
   const data = await res.json();
