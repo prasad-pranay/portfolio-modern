@@ -208,7 +208,7 @@ class NotificationItem extends React.Component {
 }
 
 // ─── Notification Provider (class component) ──────────────────────────────────
-class NotificationProvider extends React.Component {
+export class NotificationProvider extends React.Component {
   constructor(props) {
     super(props);
     this.state = { notifications: [] };

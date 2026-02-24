@@ -1,4 +1,6 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
+import { useNotification } from "../tool/Notification";
+import emailjs from "emailjs-com";
 
 const socials = [
   { label: "GitHub", handle: "@prasad-pranay", href: "https://github.com/prasad-pranay" },
@@ -10,11 +12,27 @@ export default function ContactMe() {
   const [form, setForm] = useState({ name: "", email: "", message: "" });
   const [focused, setFocused] = useState(null);
   const [sent, setSent] = useState(false);
-
+  const {show} = useNotification()
+  const form_element = useRef(null)
   const handleSubmit = (e) => {
     e.preventDefault();
     // Wire up to your form handler / EmailJS / Formspree here
     setSent(true);
+
+    // if(e.name.length<0){
+        show({type: "success",title: `Got Your Msg ${form.name}`,message: "I will get back to you soon",duration: 4000,})
+    // }
+
+            emailjs.sendForm("service_47zjwto", "template_q8qk90n", form_element.current, "4t_xVcQnm2u6_Gvxo").then(
+        (result) => {
+          console.log(result.text);
+        },
+        (error) => {
+          console.log(error.text);
+          console("Failed to send message.")
+        }
+      );
+
   };
 
   return (
@@ -104,14 +122,14 @@ export default function ContactMe() {
                 <p className="text-sm text-[#555]">I'll get back to you soon.</p>
                 <button
                   onClick={() => { setSent(false); setForm({ name: "", email: "", message: "" }); }}
-                  className="mt-8 text-xs tracking-widest text-[#555] hover:text-[#aaa] uppercase transition-colors"
+                  className="mt-8 text-xs tracking-widest text-[#555] hover:text-[#aaa] uppercase transition-colors cursor-none target-hand"
                   style={{ fontFamily: "monospace" }}
                 >
                   Send another →
                 </button>
               </div>
             ) : (
-              <form onSubmit={handleSubmit} className="space-y-0 border border-white/6 bg-black/10 dark:bg-white/[0.02]">
+              <form ref={form_element} onSubmit={handleSubmit} className="space-y-0 border border-white/6 bg-black/10 dark:bg-white/[0.02]">
 
                 {/* Name */}
                 <div className={`border-b transition-colors duration-300 ${focused === "name" ? "border-[#c9a96e]/50" : "border-white/6"}`}>
@@ -125,12 +143,13 @@ export default function ContactMe() {
                     <input
                       type="text"
                       required
+                      name="contact-name-input"
                       value={form.name}
                       onChange={(e) => setForm({ ...form, name: e.target.value })}
                       onFocus={() => setFocused("name")}
                       onBlur={() => setFocused(null)}
                       placeholder="Your name"
-                      className="w-full bg-transparent dark:placeholder-[#666] text-[#f0ece4] text-sm pb-3 outline-none placeholder-[#333] focus:placeholder-[#555] transition-colors"
+                      className="cursor-none target-text w-full bg-transparent dark:placeholder-[#666] text-[#f0ece4] text-sm pb-3 outline-none placeholder-[#333] focus:placeholder-[#555] transition-colors"
                     />
                   </div>
                 </div>
@@ -147,12 +166,13 @@ export default function ContactMe() {
                     <input
                       type="email"
                       required
+                      name="contact-name-email"
                       value={form.email}
                       onChange={(e) => setForm({ ...form, email: e.target.value })}
                       onFocus={() => setFocused("email")}
                       onBlur={() => setFocused(null)}
                       placeholder="your@email.com"
-                      className="w-full bg-transparent dark:placeholder-[#666] text-[#f0ece4] text-sm pb-3 outline-none placeholder-[#333] focus:placeholder-[#555] transition-colors"
+                      className="w-full cursor-none target-text  bg-transparent dark:placeholder-[#666] text-[#f0ece4] text-sm pb-3 outline-none placeholder-[#333] focus:placeholder-[#555] transition-colors"
                     />
                   </div>
                 </div>
@@ -169,12 +189,13 @@ export default function ContactMe() {
                     <textarea
                       required
                       rows={5}
+                      name="contact-name-msg"
                       value={form.message}
                       onChange={(e) => setForm({ ...form, message: e.target.value })}
                       onFocus={() => setFocused("message")}
                       onBlur={() => setFocused(null)}
                       placeholder="What's on your mind?"
-                      className="w-full bg-transparent dark:placeholder-[#666] text-[#f0ece4] text-sm pb-3 outline-none placeholder-[#333] focus:placeholder-[#555] transition-colors resize-none"
+                      className="w-full cursor-none target-text  bg-transparent dark:placeholder-[#666] text-[#f0ece4] text-sm pb-3 outline-none placeholder-[#333] focus:placeholder-[#555] transition-colors resize-none"
                     />
                   </div>
                 </div>
@@ -186,7 +207,7 @@ export default function ContactMe() {
                   </p>
                   <button
                     type="submit"
-                    className="text-xs tracking-[0.25em] uppercase px-6 py-3 bg-[#f0ece4] text-[#0c0c0c] hover:bg-[#c9a96e] transition-colors duration-300"
+                    className=" cursor-none target-hand text-xs tracking-[0.25em] uppercase px-6 py-3 bg-[#f0ece4] text-[#0c0c0c] hover:bg-[#c9a96e] transition-colors duration-300"
                     style={{ fontFamily: "monospace" }}
                   >
                     Send →

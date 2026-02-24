@@ -187,7 +187,6 @@ export default function Projects({setProjectShow}) {
       ? projects
       : projects.filter((p) => p.category === activeFilter);
 
-      console.log("filtered",filtered)
   return (
     <section
     data-scroll-section

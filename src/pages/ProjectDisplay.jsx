@@ -3,45 +3,74 @@ import { useEffect, useState } from "react";
 
 const project = {
     number: "01",
-    title: "Study Planner App",
-    tagline: "A productivity tool built for students who want to study smarter.",
-    category: "Full Stack Web App",
-    year: "2024",
+    title: "Review Lens",
+    tagline: "See what people really think through smart AI review analysis.",
+    category: "Data Analytics",
+    year: "Jun 2025",
     status: "In Progress",
-    github: "https://github.com",
-    live: "https://yourproject.com",
+    github: "https://github.com/prasad-pranay/reviewlens",
+    live: "",
     overview:
-        "Study Planner is a full-stack productivity application designed specifically for university students. It centralizes everything a student needs — deadlines, timetables, notes, and progress tracking — into one clean, distraction-free interface. The goal was to eliminate the friction of juggling multiple apps and give students a single source of truth for their academic life. Built from scratch during my second year of CS, this project pushed me to learn authentication flows, relational database design, and responsive UI from the ground up.",
+        "ReviewLens is an AI-powered review analysis platform that helps users quickly understand large amounts of customer feedback. It automatically analyzes reviews to identify key insights, sentiments, and common opinions, making it easier to see what people like or dislike about a product or service. By transforming unstructured reviews into clear and meaningful information, ReviewLens saves time and helps users make better decisions.ReviewLens is an AI-powered review analysis platform that helps users quickly understand large amounts of customer feedback. It automatically analyzes reviews to identify key insights, sentiments, and common opinions, making it easier to see what people like or dislike about a product or service. By transforming unstructured reviews into clear and meaningful information, ReviewLens saves time and helps users make better decisions.",
     images: [
-        "https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?w=900&q=80",
-        "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=900&q=80",
-        "https://images.unsplash.com/photo-1555421689-d68471e189f2?w=900&q=80",
+        "/reviewlens.mp4",
+        "/prj-reviewlens/0.png",
+        "/prj-reviewlens/1.png",
+        "/prj-reviewlens/2.png",
+        "/prj-reviewlens/3.png",
+        "/prj-reviewlens/4.png",
+        "/prj-reviewlens/5.png",
     ],
     features: [
         {
-            title: "Smart Deadline Tracker",
-            desc: "Automatically sorts and highlights upcoming deadlines by urgency with color-coded priority levels.",
-        },
-        {
-            title: "Subject-based Task Boards",
-            desc: "Kanban-style boards for each subject — move tasks from To Do → In Progress → Done.",
-        },
-        {
-            title: "Weekly Timetable View",
-            desc: "A drag-and-drop weekly calendar to plan study sessions and block time for assignments.",
-        },
-        {
-            title: "Progress Dashboard",
-            desc: "Visual charts showing completion rates per subject and overall weekly progress.",
-        },
-        {
-            title: "User Authentication",
-            desc: "Secure sign-up and login with JWT tokens and persistent sessions across devices.",
-        },
-        {
-            title: "Dark / Light Mode",
-            desc: "Fully responsive theme toggle with system preference detection and manual override.",
-        },
+        title:"📄 CSV Upload for Review Analysis.",
+        desc:"Upload CSV files containing product reviews and get meaningful insights instantly.",
+      },
+      {
+        title:"🔍 Search Product Reviews by Name.",
+        desc:"Easily compare similar products from different companies and get best option based on reviews.",
+      },
+      {
+        title:"📷 Barcode Search Support",
+        desc:"Search for a product using its barcode to quickly fetch its details and review history.",
+      },
+      {
+        title:"💸 Price Comparison Across Platforms",
+        desc:"Check and compare the prices of a product across multiple e-commerce platforms.",
+      },
+      {
+        title:"📊 Sentiment Analysis with NLTK",
+        desc:"Backend uses natural language processing to analyze review sentiment and provide helpful feedback.",
+      },
+      {
+        title:"📱 Responsive & User-Friendly UI",
+        desc:"Fully responsive design for both desktop and mobile devices, ensuring a smooth user experience.",
+      },
+
+        // {
+        //     title: "Smart Deadline Tracker",
+        //     desc: "Automatically sorts and highlights upcoming deadlines by urgency with color-coded priority levels.",
+        // },
+        // {
+        //     title: "Subject-based Task Boards",
+        //     desc: "Kanban-style boards for each subject — move tasks from To Do → In Progress → Done.",
+        // },
+        // {
+        //     title: "Weekly Timetable View",
+        //     desc: "A drag-and-drop weekly calendar to plan study sessions and block time for assignments.",
+        // },
+        // {
+        //     title: "Progress Dashboard",
+        //     desc: "Visual charts showing completion rates per subject and overall weekly progress.",
+        // },
+        // {
+        //     title: "User Authentication",
+        //     desc: "Secure sign-up and login with JWT tokens and persistent sessions across devices.",
+        // },
+        // {
+        //     title: "Dark / Light Mode",
+        //     desc: "Fully responsive theme toggle with system preference detection and manual override.",
+        // },
     ],
     stack: [
         { category: "Frontend", items: ["React", "Tailwind CSS", "Recharts"] },
@@ -158,7 +187,7 @@ export default function ProjectDetail({ setProjectShow }) {
                             </svg>
                             GitHub
                         </a>
-                        <a
+                        {project.live.length>0 && <a
                             href={project.live}
                             target="_blank"
                             rel="noopener noreferrer"
@@ -167,20 +196,21 @@ export default function ProjectDetail({ setProjectShow }) {
                         >
                             Live Demo
                             <span className="text-xs">↗</span>
-                        </a>
+                        </a>}
                     </div>
                 </div>
 
                 {/* Image gallery */}
                 <div className="space-y-3">
                     <div className="relative w-full overflow-hidden bg-[#141414] border border-white/6" style={{ aspectRatio: "16/9" }}>
-                        <img
+                        {project.images[activeImage].includes(".mp4") ? <video key={activeImage} src={project.images[activeImage]} autoPlay loop muted playsInline className="w-full h-full object-cover"
+                            style={{ animation: "fadeIn 0.4s ease", filter: "brightness(0.85)" }} ></video>: <img
                             key={activeImage}
                             src={project.images[activeImage]}
                             alt={`Screenshot ${activeImage + 1}`}
                             className="w-full h-full object-cover"
                             style={{ animation: "fadeIn 0.4s ease", filter: "brightness(0.85)" }}
-                        />
+                        />}
                         <div className="absolute inset-0 bg-gradient-to-t from-[#0c0c0c]/40 to-transparent pointer-events-none" />
                         {/* Image counter */}
                         <div className="absolute bottom-4 right-4">
@@ -191,19 +221,31 @@ export default function ProjectDetail({ setProjectShow }) {
                     </div>
                     {/* Thumbnails */}
                     <div className="flex gap-2">
-                        {project.images.map((img, i) => (
-                            <button
+                        {project.images.map((img, i) => {
+                            if(img.includes(".mp4")){
+                                return <button onClick={() => setActiveImage(i)} className="relative h-full flex-1 py-5 items-center justify-center cursor-none target-hand bg-white dark:bg-black/40 flex flex-col">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6 stroke-black dark:stroke-white">
+  <path stroke-linecap="round" stroke-linejoin="round" d="M5.25 5.653c0-.856.917-1.398 1.667-.986l11.54 6.347a1.125 1.125 0 0 1 0 1.972l-11.54 6.347a1.125 1.125 0 0 1-1.667-.986V5.653Z" />
+</svg>
+{i === activeImage && (
+                                    <div className="absolute inset-0 border-2 border-[#c9a96e]" />
+                                )}
+                                </button>
+                            }else{
+                                return <button
                                 key={i}
                                 onClick={() => setActiveImage(i)}
                                 className="relative overflow-hidden flex-1 transition-all duration-300 cursor-none target-hand"
                                 style={{ aspectRatio: "16/9" }}
-                            >
+                                >
                                 <img src={img} alt="" className="w-full h-full object-cover" style={{ filter: "brightness(0.6)" }} />
                                 {i === activeImage && (
                                     <div className="absolute inset-0 border-2 border-[#c9a96e]" />
                                 )}
                             </button>
-                        ))}
+                            }
+                        }
+                    )}
                     </div>
                 </div>
 

@@ -273,16 +273,7 @@ export default function BubbleMenu({
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.96 }}
                 onClick={() => setAiFeature(false)}
-                className="
-    text-xs
-    py-2 px-3
-    rounded-lg
-    bg-[#222]
-    text-white
-    self-end
-    hover:bg-black
-    transition"
-              >
+                className="cursor-none target-hand text-xs py-2 px-3 rounded-lg bg-[#222] text-white self-end hover:bg-black transition">
                 Dismiss
               </motion.button>
 

@@ -53,7 +53,7 @@ function CallerPage() {
     });
 
     locoRef.current.on("call", (value, way) => {
-      if (way === "enter") { console.log(value); setCurrentTab(value) }
+      if (way === "enter") { setCurrentTab(value) }
     });
 
     locoRef.current.on("scroll", (args) => {
@@ -158,7 +158,7 @@ function CallerPage() {
           <AboutMe setShowPortfolio={setShowPortfolio} setCurrentSetterTab={setCurrentSetterTab} />
           <Skills/>
           <Education/>
-          <ContactMe/>
+          <ContactMe/> 
           {/* <Contact setShowLink={setShowLink} /> */}
         </main>
 

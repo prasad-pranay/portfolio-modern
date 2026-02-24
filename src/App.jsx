@@ -4,6 +4,7 @@ import CallerPage from './Caller'
 import { AnimatePresence } from 'framer-motion'
 import Noise from './component/NoiseBg'
 import Cursor from './component/Cursor'
+import { NotificationProvider } from './tool/Notification'
 
 const App = () => {
 
@@ -11,16 +12,18 @@ const App = () => {
     useEffect(() => {
       setTimeout(() => {
         setshowLoading(false)
-      // }, 3800);
-      }, 0);
+      }, 3800);
+      // }, 0);
     }, [])
     
   return (
-    <>
+    <NotificationProvider>
     <AnimatePresence>
       {loading && <LoadingPage/>}
     </AnimatePresence>
-    {!loading && <CallerPage/>}
+    {!loading && 
+    <CallerPage/>
+    }
 
     {/* background blur */}
       <Noise
@@ -33,7 +36,7 @@ const App = () => {
 
       {/* animated cursor */}
       <Cursor />
-    </>
+    </NotificationProvider>
   )
 }
 
