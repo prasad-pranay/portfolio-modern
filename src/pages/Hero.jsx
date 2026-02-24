@@ -134,15 +134,15 @@ const Hero = ({ setCurrentSetterTab, setShowPortfolio, showLeftside }) => {
   return (
     <section id="home"
       data-scroll-section
-      className='min-h-screen relative flex flex-col items-start justify-center pt-15 px-1 sm:px-5 lg:px-0 overflow-hidden'>
+      className='min-h-screen relative flex flex-col items-start justify-center pt-15 pl-5 sm:pl-0 px-1 sm:px-5 lg:px-0 overflow-hidden'>
       <div data-scroll data-scroll-repeat data-scroll-call="home" className='h-[250px] sm:h-0' />
       {/* lets meet button */}
       {/* <SectionTitle title="Hey!" /> */}
       {/* big info */}
       <motion.h1 initial={{ y: 30, opacity: 0 }} whileInView={{ y: 0, opacity: 1 }} exit={{ y: 30, opacity: 0 }} viewport={{ once: false, amount: .5 }} transition={{ ease: "easeInOut", duration: 1 }}
-        className={`flex flex-col z-[100] text-2xl sm:text-4xl md:text-5xl lg:text-9xl leading-tight tracking-tight font-bold syne-font relative ${textGradientClass} `}>
-          <span>Full-Stack</span> 
-          <span>Developer</span> 
+        className={` ${showLeftside?"xl:mt-0 lg:mt-40":"sm:mt-80 md:mt-0 md:w-[50%]"}  flex flex-col z-[100] text-6xl sm:text-7xl md:text-8xl lg:text-8xl xl:text-9xl leading-tight tracking-tight font-bold syne-font relative ${textGradientClass} `}>
+          Full-Stack 
+          Developer
        </motion.h1>
       <motion.h1 initial={{ y: 30, opacity: 0 }} whileInView={{ y: 0, opacity: 1 }} exit={{ y: 30, opacity: 0 }} viewport={{ once: false, amount: .5 }} transition={{ ease: "easeInOut", duration: 1 }}
         className={`flex flex-col z-[100] text-xl mt-5 leading-tight tracking-tight font-bold syne-font relative ${textGradientClass} `}>
@@ -164,7 +164,7 @@ experiences.
         </motion.button>
       </div>
     
-    <div className={`absolute  transition duration-400 ${showLeftside ? "scale-50 right-0 translate-x-1/6":"scale-80 right-5"}`} style={{ perspective: "1000px" }}>
+    <div className={`absolute transition-all duration-400 ${showLeftside ? "scale-40 xl:scale-50 xl:top-[unset] -top-1/8 xl:right-0 right-1/8 xl:translate-x-1/6":"xl:translate-x-0 xl:scale-80 translate-x-[220px] sm:translate-x-1/5 scale-50 sm:scale-50 md:right-0 xl:right-5 md:top-[unset] top-0 sm:-top-[50px] right-1/5"}`} style={{ perspective: "1000px" }}>
       <CartoonWhiteboard/>
     </div>
 

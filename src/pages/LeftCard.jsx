@@ -222,10 +222,10 @@ const LeftCard = ({ showLeftside, setShowleftside, chatHistory, setChatHistory }
 
         {/* middle */}
         <div className='pl-5 pr-1 h-full overflow-hidden flex flex-col relative'>
-          {Object.keys(chatHistory).length>0 && <>
+          {/* {Object.keys(chatHistory).length>0 && <>
           <motion.img initial={{scale:0}} animate={{scale:1}} src='/darkbg.jpg' className='w-full h-full absolute left-0 pointer-events-none hidden dark:block' />
           <motion.img initial={{scale:0}} animate={{scale:1}} src='/lightbg.jpg' className='w-full h-full absolute left-0 pointer-events-none block dark:hidden' />
-          </>}
+          </>} */}
           {/* initial */}
           {Object.keys(chatHistory).length == 0 ? <div className='flex flex-col justify-center h-full'>
             <div className='relative h-50 flex flex-col items-center justify-center'>
