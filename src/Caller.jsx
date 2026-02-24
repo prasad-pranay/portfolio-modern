@@ -15,6 +15,7 @@ import ResizableBox from './component/ResizableWindow'
 import gsap from 'gsap'
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { MotionPathPlugin } from "gsap/MotionPathPlugin";
+import Education from './pages/Education'
 
 gsap.registerPlugin(ScrollTrigger, MotionPathPlugin);
 
@@ -110,22 +111,17 @@ function CallerPage() {
   }, [currentTabSetter]);
 
 
-  const [chatHistory, setChatHistory] = useState({
-    // "Hey who are you": "why you want to know",
-    // "Just kidding": "no kidding in front of me",
-    // "what your purpose": "shut up i am not here to tell you what my purpose here is understand",
-
-  })
+  const [chatHistory, setChatHistory] = useState({})
 
 
   const [showLeftside, setShowleftside] = useState(false)
   const [leftSideExpanded,setLeftSideExpanded] = useState(false)
   const [showAiFeature,setAiFeature] = useState(false)
-  // useEffect(() => {
-  //   setTimeout(() => {
-  //     setAiFeature(true)
-  //   }, 2500);
-  // }, [])
+  useEffect(() => {
+    setTimeout(() => {
+      setAiFeature(true)
+    }, 2500);
+  }, [])
   
   return (
     <>
@@ -150,7 +146,8 @@ function CallerPage() {
         <main ref={scrollRef} data-scroll-container id='right-container' className="overflow-hidden flex flex-col">
           <Hero showLeftside={showLeftside} setCurrentSetterTab={setCurrentSetterTab} setShowPortfolio={setShowPortfolio} />
           <Portfolio setProjectShow={setProjectShow} />
-          <Resume scroller={scrollRef.current} />
+          {/* <Resume scroller={scrollRef.current} /> */}
+          <Education/>
           <Contact setShowLink={setShowLink} />
         </main>
       </div>

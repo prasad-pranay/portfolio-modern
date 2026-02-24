@@ -1,7 +1,6 @@
 import React from 'react'
 import { buttonGradientClass, CopySvg, GithubSvg, GmailSvg, LinkedInSvg, SectionTitle, SendSvg, textGradientClass, TwitterSvg, WhatsappSvg } from '../component/SvgComponent'
 import { motion } from 'framer-motion'
-import DinoGame from '../component/HeroGame'
 
 const SocialMedia = ({ Icon, setShowLink, link }) => {
     return <motion.div onClick={e => setShowLink({ x: e.clientX, y: e.clientY, link: link })} initial={{ y: 30, scale: 0, opacity: 0 }} whileInView={{ y: 0, scale: 1, opacity: 1 }} exit={{ y: 30, scale: 0, opacity: 0 }} viewport={{ once: false, amount: 0.5 }} transition={{ ease: "easeInOut", duration: .5 }}
@@ -129,7 +128,6 @@ const Contact = ({ setShowLink }) => {
                     </p>
                 </div>
             </div>
-            <DinoGame/>
         </section>
 
 

@@ -1,9 +1,6 @@
 import React, { useRef } from 'react'
 import { SectionTitle, textGradientClass } from '../component/SvgComponent'
 import { motion } from 'framer-motion'
-import CardSwap, { Card } from '../component/CardSwap'
-import TextPressure from '../component/HeroText'
-import DinoGame from '../component/HeroGame'
 import CartoonWhiteboard from '../component/Whiteboard'
 
 
@@ -142,11 +139,16 @@ const Hero = ({ setCurrentSetterTab, setShowPortfolio, showLeftside }) => {
       {/* lets meet button */}
       {/* <SectionTitle title="Hey!" /> */}
       {/* big info */}
-
       <motion.h1 initial={{ y: 30, opacity: 0 }} whileInView={{ y: 0, opacity: 1 }} exit={{ y: 30, opacity: 0 }} viewport={{ once: false, amount: .5 }} transition={{ ease: "easeInOut", duration: 1 }}
         className={`flex flex-col z-[100] text-2xl sm:text-4xl md:text-5xl lg:text-9xl leading-tight tracking-tight font-bold syne-font relative ${textGradientClass} `}>
           <span>Full-Stack</span> 
           <span>Developer</span> 
+       </motion.h1>
+      <motion.h1 initial={{ y: 30, opacity: 0 }} whileInView={{ y: 0, opacity: 1 }} exit={{ y: 30, opacity: 0 }} viewport={{ once: false, amount: .5 }} transition={{ ease: "easeInOut", duration: 1 }}
+        className={`flex flex-col z-[100] text-xl mt-5 leading-tight tracking-tight font-bold syne-font relative ${textGradientClass} `}>
+          I'm a developer who
+crafts digital
+experiences.
        </motion.h1>
       {/* bottom buttons */}
       <div className='flex gap-x-5 w-full mt-10'>
