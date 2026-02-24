@@ -7,9 +7,7 @@ export default function AboutMe({setShowPortfolio,setCurrentSetterTab}) {
       style={{ fontFamily: "'Georgia', 'Times New Roman', serif" }}
     >
       <div
-        data-scroll
-        data-scroll-repeat
-        data-scroll-call="about" className="w-full max-w-7xl">
+        data-scroll data-scroll-repeat data-scroll-call="about" className="w-full max-w-7xl">
 
         {/* Label */}
         {/* <p
@@ -138,10 +136,7 @@ export default function AboutMe({setShowPortfolio,setCurrentSetterTab}) {
           </div>
         </div>
       </div>
-                  <div
-        data-scroll
-        data-scroll-repeat
-        data-scroll-call="about"/>
+                  <div data-scroll data-scroll-repeat data-scroll-call="about"/>
       <style>{`
         @keyframes ping-slow {
           0%, 100% { opacity: 1; }
