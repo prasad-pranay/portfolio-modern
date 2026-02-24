@@ -33,6 +33,7 @@ export default function Education() {
   return (
     <section
     data-scroll-section
+    id="resume"
       className="mt-[50vh] flex flex-col items-center justify-center px-6 py-10"
       style={{ fontFamily: "'Georgia', 'Times New Roman', serif" }}
     >

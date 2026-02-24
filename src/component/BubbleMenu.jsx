@@ -33,9 +33,9 @@ const DEFAULT_ITEMS = [
     hoverStyles: { bgColor: '#ef4444', textColor: '#ffffff' }
   },
   {
-    label: 'ChatBot',
-    href: 'chatbot',
-    ariaLabel: 'ChatBot',
+    label: 'About',
+    href: 'about',
+    ariaLabel: 'About',
     rotation: 8,
     hoverStyles: { bgColor: '#20c997', textColor: '#ffffff' }
   },

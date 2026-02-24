@@ -1,11 +1,15 @@
 export default function AboutMe({setShowPortfolio,setCurrentSetterTab}) {
   return (
     <section
+    id="about"
         data-scroll-section
       className="min-h-screen flex items-center justify-center py-24"
       style={{ fontFamily: "'Georgia', 'Times New Roman', serif" }}
     >
-      <div className="w-full max-w-7xl">
+      <div
+        data-scroll
+        data-scroll-repeat
+        data-scroll-call="about" className="w-full max-w-7xl">
 
         {/* Label */}
         {/* <p
@@ -134,7 +138,10 @@ export default function AboutMe({setShowPortfolio,setCurrentSetterTab}) {
           </div>
         </div>
       </div>
-
+                  <div
+        data-scroll
+        data-scroll-repeat
+        data-scroll-call="about"/>
       <style>{`
         @keyframes ping-slow {
           0%, 100% { opacity: 1; }
