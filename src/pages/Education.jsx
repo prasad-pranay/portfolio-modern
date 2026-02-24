@@ -34,7 +34,7 @@ export default function Education() {
     <section
     data-scroll-section
     id="resume"
-      className="mt-[50vh] flex flex-col items-center justify-center px-6 py-10"
+      className="flex flex-col items-center justify-center px-6 py-10 dark:bg-[#111]/20"
       style={{ fontFamily: "'Georgia', 'Times New Roman', serif" }}
     >
       {/* Header */}
@@ -42,6 +42,14 @@ export default function Education() {
         data-scroll
         data-scroll-repeat
         data-scroll-call="resume" className="w-full max-w-7xl mb-16">
+            {/* Label */}
+        <p
+          className="text-xs tracking-[0.4em] dark:text-[#ccc] text-[#555] uppercase mb-12 self-start"
+          style={{ fontFamily: "monospace" }}
+        >
+          05 — Education
+        </p>
+
         <p
           className="text-xs tracking-[0.35em] text-[#555] dark:text-[#888] uppercase mb-3"
           style={{ fontFamily: "monospace" }}

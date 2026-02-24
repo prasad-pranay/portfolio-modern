@@ -11,7 +11,7 @@ function formatText(text) {
   // Convert URLs into clickable links
   text = text.replace(
     /(https?:\/\/[^\s]+)/g,
-    '<a href="$1" target="_blank" class="dark:text-blue-400 text-blue-500 underline">$1</a>'
+    '<a href="$1" target-hand cursor-none target="_blank" class="dark:text-blue-400 text-blue-500 underline">$1</a>'
   );
 
   const lines = text.split("\n");
@@ -50,18 +50,10 @@ function formatText(text) {
 
 
 
-const MyCard = ({ color, text }) => {
-  return (
-    <div className={`${color} rounded-full px-5 py-3 flex flex-col items-center justify-center gap-2 scale-200 hover:scale-400 transition duration-300`}>
-      <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" className='size-7 rounded-full'><g id="SVGRepo_bgCarrier" strokeWidth="0"></g><g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round"></g><g id="SVGRepo_iconCarrier"> <rect width="48" height="48" fill="white" fill-opacity="0.01"></rect> <path d="M36 15C38.7614 15 41 12.7614 41 10C41 7.23858 38.7614 5 36 5C33.2386 5 31 7.23858 31 10C31 12.7614 33.2386 15 36 15Z" fill="#2F88FF" stroke="#000000" strokeWidth="4"></path> <path d="M12 16.7691L20.0031 13.998L31 19.2466L20.0031 27.4442L31 34.6834L24.0083 43.998" stroke="#000000" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round"></path> <path d="M35.3198 21.6434L38.0015 23.1018L43.9998 17.4658" stroke="#000000" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round"></path> <path d="M16.849 31.5454L13.8793 35.4572L4.00391 40.9964" stroke="#000000" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round"></path> </g></svg>
-      <p className='text-sm '>{text}</p>
-    </div>
-  )
-}
 
 
 const QuestionComp = ({ question,SetMsgText }) => {
-  return (<p onClick={()=>SetMsgText(question)} className='bg-[#1f1f1f] hover:bg-[#333] active:scale-50 px-6 py-2 rounded-full text-xs hover:scale-105 transition duration-300'>
+  return (<p onClick={()=>SetMsgText(question)} className='bg-[#fff] dark:bg-[#1f1f1f] hover:bg-[#aaa] dark:hover:bg-[#333] text-[#222] dark:text-[#fff] active:scale-50 px-6 py-2 rounded-full text-xs hover:scale-105 transition duration-300'>
     {question}
   </p>)
 }
@@ -188,9 +180,9 @@ const LeftCard = ({ showLeftside, setShowleftside, chatHistory, setChatHistory }
 
   return (
     <section
-      className={`flex h-screen lg:items-center justify-center fixed z-[10000] sm:z-[1000] lg:relative transition-all duration-300 ease-in-out md:ml-5 sm:mx-[20px] md:mx-0 ${showLeftside ? "w-full sm:w-[calc(100%-40px)] md:w-[330px]" : "w-[0px] overflow-hidden"}`}>
+      className={`flex h-screen lg:items-center dark:bg-[#111]/20 justify-center fixed z-[10000] sm:z-[1000] lg:relative transition-all duration-300 ease-in-out sm:mx-[20px] md:mx-0 ${showLeftside ? "w-full sm:w-[calc(100%-40px)] md:w-[330px] md:pl-5" : "w-[0px] overflow-hidden"}`}>
           
-      <div className='sm:mt-[15vh] h-screen sm:h-[80vh] bg-[#fff]/70 dark:bg-[#111] shadow dark:shadow-white/20 transition w-full duration-300 relative rounded-xl flex flex-col'>
+      <div className='sm:mt-[80px] h-[100dvh] sm:h-[85vh] bg-[#fff]/70 backdrop-blur-sm dark:bg-[#111]/50 shadow dark:shadow-white/20 transition w-full duration-300 relative rounded-xl flex flex-col'>
         {/* minimize expand button */}
         <div className="absolute top-[-40px] shadow dark:shadow-white/20 right-0 bg-[#fff]/70 dark:bg-[#111] rounded-lg flex items-center">
           <svg onClick={() => setShowleftside(false)}  xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="size-8 stroke-[#111] dark:stroke-white target-hand hover:stroke-teal-500 transition duration-300 p-2">

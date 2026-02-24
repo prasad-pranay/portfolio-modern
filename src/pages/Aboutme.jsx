@@ -3,19 +3,19 @@ export default function AboutMe({setShowPortfolio,setCurrentSetterTab}) {
     <section
     id="about"
         data-scroll-section
-      className="min-h-screen flex items-center justify-center py-24"
+      className="min-h-screen flex items-center justify-center py-24 dark:bg-[#111]/20 px-5 md:px-0"
       style={{ fontFamily: "'Georgia', 'Times New Roman', serif" }}
     >
       <div
         data-scroll data-scroll-repeat data-scroll-call="about" className="w-full max-w-7xl">
 
         {/* Label */}
-        {/* <p
-          className="text-xs tracking-[0.4em] text-[#555] uppercase mb-12"
+        <p
+          className="text-xs tracking-[0.4em] dark:text-[#ccc] text-[#555] uppercase mb-12"
           style={{ fontFamily: "monospace" }}
         >
-          01 — About Me
-        </p> */}
+          03 — About Me
+        </p>
 
         {/* Main grid */}
         <div className="grid grid-cols-1 md:grid-cols-12 gap-16 items-start">
@@ -56,7 +56,7 @@ export default function AboutMe({setShowPortfolio,setCurrentSetterTab}) {
 
             {/* Headline */}
             <h2
-              className="text-[clamp(2rem,5vw,3.5rem)] font-normal text-[#f0ece4] leading-[1.1]"
+              className="text-[clamp(2rem,5vw,3.5rem)] font-normal text-[#111] dark:text-[#f0ece4] leading-[1.1]"
               style={{ letterSpacing: "-0.02em" }}
             >
               Hi, I'm a

@@ -19,6 +19,13 @@ const DEFAULT_ITEMS = [
     hoverStyles: { bgColor: '#f59e0b', textColor: '#ffffff' }
   },
   {
+    label: 'About',
+    href: 'about',
+    ariaLabel: 'About',
+    rotation: 8,
+    hoverStyles: { bgColor: '#20c997', textColor: '#ffffff' }
+  },
+  {
     label: 'Education',
     href: 'resume',
     ariaLabel: 'Education',
@@ -31,13 +38,6 @@ const DEFAULT_ITEMS = [
     ariaLabel: 'Contact',
     rotation: 8,
     hoverStyles: { bgColor: '#ef4444', textColor: '#ffffff' }
-  },
-  {
-    label: 'About',
-    href: 'about',
-    ariaLabel: 'About',
-    rotation: 8,
-    hoverStyles: { bgColor: '#20c997', textColor: '#ffffff' }
   },
 ];
 
@@ -74,10 +74,12 @@ export default function BubbleMenu({
       </svg>
       , title: 'Resume'
     },
-    "about": {icon:<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="size-6">
-  <path strokeLinecap="round" strokeLinejoin="round" d="M17.982 18.725A7.488 7.488 0 0 0 12 15.75a7.488 7.488 0 0 0-5.982 2.975m11.963 0a9 9 0 1 0-11.963 0m11.963 0A8.966 8.966 0 0 1 12 21a8.966 8.966 0 0 1-5.982-2.275M15 9.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
-</svg>
-,title:"About"},
+    "about": {
+      icon: <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="size-6">
+        <path strokeLinecap="round" strokeLinejoin="round" d="M17.982 18.725A7.488 7.488 0 0 0 12 15.75a7.488 7.488 0 0 0-5.982 2.975m11.963 0a9 9 0 1 0-11.963 0m11.963 0A8.966 8.966 0 0 1 12 21a8.966 8.966 0 0 1-5.982-2.275M15 9.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+      </svg>
+      , title: "About"
+    },
     contact: { icon: <ContactSvg classname="stroke-black h-5 w-5" />, title: 'Contact' },
   };
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -242,11 +244,50 @@ export default function BubbleMenu({
         <div onClick={() => setShowOptions(prev => !prev)} className='pointer-events-auto group relative'>
           {/* checkout notificaiton */}
           {showAiFeature && <>
-          <motion.div initial={{scale:0}} animate={{scale:1}} className='absolute z-[100] top-[120%] left-[80%] px-5 py-2 rounded-xl bg-white text-sm w-45 flex flex-col'>
-            <p>Checkout the new Ai ChatBot Feature!</p>
-            <p onClick={()=>setAiFeature(false)} className='text-xs py-1.5 text-white px-3 w-max rounded-sm bg-[#333] hover:bg-[#555] target-hand mt-2 self-end hover:scale-110 transition duration-300 active:scale-100'>Dissmiss</p>
-          </motion.div>
-          <div className="fixed top-0 left-0 w-screen h-screen bg-black/40"></div>
+            <motion.div
+              initial={{ opacity: 0, y: 15, scale: 0.95 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              exit={{ opacity: 0, y: 10, scale: 0.95 }}
+              transition={{ duration: 0.35, ease: "easeOut" }}
+              className="absolute z-[100] top-[120%] left-[80%]
+  w-52 px-5 py-4
+  rounded-xl
+  bg-white/90 backdrop-blur-md
+  shadow-xl
+  border border-gray-200
+  text-sm flex flex-col gap-3"
+            >
+
+              {/* Title */}
+              <p className="text-[#222] font-medium leading-snug">
+                ✨ New AI Chatbot Feature
+              </p>
+
+              {/* Subtitle */}
+              <p className="text-xs text-[#777] leading-relaxed">
+                Ask anything and get instant smart answers.
+              </p>
+
+              {/* Button */}
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.96 }}
+                onClick={() => setAiFeature(false)}
+                className="
+    text-xs
+    py-2 px-3
+    rounded-lg
+    bg-[#222]
+    text-white
+    self-end
+    hover:bg-black
+    transition"
+              >
+                Dismiss
+              </motion.button>
+
+            </motion.div>
+            <div className="fixed top-0 left-0 w-screen h-screen bg-black/40"></div>
           </>
           }
 
@@ -384,13 +425,13 @@ export default function BubbleMenu({
                   '[flex:0_0_calc(100%/3)]',
                   'box-border'
                 ].join(' ')}
-                onClick={() => { 
-                  if(item.href=="chatbot"){
+                onClick={() => {
+                  if (item.href == "chatbot") {
                     setShowleftside(true)
-                    handleToggle(); 
-                  }else{
-                    handleToggle(); 
-                    setCurrentSetterTab(item.href) 
+                    handleToggle();
+                  } else {
+                    handleToggle();
+                    setCurrentSetterTab(item.href)
                   }
                 }}
               >

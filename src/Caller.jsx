@@ -1,22 +1,27 @@
-import Contact from './pages/Contact'
-import Hero from './pages/Hero'
-import LeftCard from './pages/LeftCard'
-import Portfolio from './pages/Portfolio'
-import Resume from './pages/Resume'
+// import Contact from './pages/Contact'
+// import Hero from './pages/Hero'
+// import Portfolio from './pages/Portfolio'
+// import Resume from './pages/Resume'
+// import ProjectDisplayScreen from './pages/ProjectDisplayScreen'
 
+import LeftCard from './pages/LeftCard'
 import { useEffect, useRef, useState } from "react";
 import LocomotiveScroll from "locomotive-scroll";
 import "locomotive-scroll/dist/locomotive-scroll.css";
 import BubbleMenu from './component/BubbleMenu'
 import CopySocialLink from './component/CopySocialLink'
 import { AnimatePresence } from 'framer-motion'
-import ProjectDisplayScreen from './pages/ProjectDisplayScreen'
 import ResizableBox from './component/ResizableWindow'
 import gsap from 'gsap'
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { MotionPathPlugin } from "gsap/MotionPathPlugin";
 import Education from './pages/Education'
 import AboutMe from './pages/Aboutme'
+import ContactMe from './pages/Contactnew'
+import Projects from './pages/Projects'
+import HeroPage from './pages/Heros'
+import Skills from './pages/Skills'
+import ProjectDetail from './pages/ProjectDisplay'
 
 gsap.registerPlugin(ScrollTrigger, MotionPathPlugin);
 
@@ -40,7 +45,7 @@ function CallerPage() {
     locoRef.current = new LocomotiveScroll({
       el: scrollRef.current,
       smooth: true,
-      lerp: 0.05,
+      lerp: 0.08,
       multiplier: 1,
       smartphone: { smooth: true },
       tablet: { smooth: true },
@@ -126,14 +131,14 @@ function CallerPage() {
   
   return (
     <>
-    <div className="fixed top-0 left-0 h-[2px] bg-white z-[100] rounded-r-lg" ref={progressRef} style={{ width: `0%`,transition:"width 500ms linear" }} ></div>
+    <div className="fixed top-0 left-0 h-[2px] bg-white z-[100] rounded-r-lg" ref={progressRef} style={{ width: `0%`,transition:"width 200ms linear" }} ></div>
       {/* background blurs */}
       <div className="fixed pointer-events-none bg-[#a287d5] blur blur-1 opacity-80 lg:opacity-100" />
       <div className="fixed pointer-events-none bg-[#E4B8BF] blur blur-2 opacity-80 lg:opacity-100" />
       <div className="fixed pointer-events-none bg-[#8b6bc5] blur blur-3 opacity-80 lg:opacity-100" />
       
       {/* conent starts here */}
-      <div className="bg-[var(--bg)] transition-bg duration-300 overflow-hidden flex flex-col lg:grid lg:grid-cols-[max-content_1fr] gap-5 ">
+      <div className="bg-[var(--bg)] transition-bg duration-300 overflow-hidden flex flex-col lg:grid lg:grid-cols-[max-content_1fr] ">
         {/* <div
           id='profile'
           className={`h-screen w-full lg:items-center justify-center relative hidden lg:flex ml-5 overflow-hidden transition duration-500`}
@@ -144,14 +149,29 @@ function CallerPage() {
         > */}
           <LeftCard showLeftside={showLeftside} setShowleftside={setShowleftside} chatHistory={chatHistory} setChatHistory={setChatHistory} setShowPortfolio={setShowPortfolio} setShowLink={setShowLink} setCurrentSetterTab={setCurrentSetterTab} />
         {/* </div> */}
-        <main ref={scrollRef} data-scroll-container id='right-container' className="overflow-hidden flex flex-col">
-          <Hero showLeftside={showLeftside} setCurrentSetterTab={setCurrentSetterTab} setShowPortfolio={setShowPortfolio} />
-          <Portfolio setProjectShow={setProjectShow} />
+        <main ref={scrollRef} data-scroll-container id='right-container' className="overflow-hidden flex flex-col ">
+          <HeroPage setCurrentSetterTab={setCurrentSetterTab} setShowPortfolio={setShowPortfolio}/>
+          {/* <Hero showLeftside={showLeftside} setCurrentSetterTab={setCurrentSetterTab} setShowPortfolio={setShowPortfolio} /> */}
+          <Projects setProjectShow={setProjectShow} />
+          {/* <Portfolio setProjectShow={setProjectShow} /> */}
           {/* <Resume scroller={scrollRef.current} /> */}
-          <Education/>
           <AboutMe setShowPortfolio={setShowPortfolio} setCurrentSetterTab={setCurrentSetterTab} />
-          <Contact setShowLink={setShowLink} />
+          <Skills/>
+          <Education/>
+          <ContactMe/>
+          {/* <Contact setShowLink={setShowLink} /> */}
         </main>
+
+        
+        {/* Subtle grid background */}
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          backgroundImage:
+            "linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px)",
+          backgroundSize: "80px 80px",
+        }}
+      />
       </div>
       {/* navbar */}
       <BubbleMenu
@@ -177,7 +197,8 @@ function CallerPage() {
 
       {/* project screen */}
       <AnimatePresence>
-        {projectShow && <ProjectDisplayScreen setProjectShow={setProjectShow} />}
+        {projectShow && <ProjectDetail setProjectShow={setProjectShow} />}
+        {/* {projectShow && <ProjectDisplayScreen setProjectShow={setProjectShow} />} */}
       </AnimatePresence>
 
       {/* my resume  */}
