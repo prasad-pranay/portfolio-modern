@@ -1,5 +1,4 @@
 import { motion } from "framer-motion";
-import {   Minimize, Minus, Square, X } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 
 export default function ResizableBox({
@@ -168,7 +167,10 @@ export default function ResizableBox({
           <div className="flex items-center gap-2">
             <button className="group relative cursor-pointer hover:bg-white/10 p-2 rounded">
               <span className='absolute scale-0 opacity-0 group-hover:scale-100 group-hover:opacity-100 transition duration-200 bottom-[120%] bg-[#111] text-white rounded-sm text-xs px-3 py-1 left-1/2 -translate-x-1/2'>Minimize</span>
-              <Minus size={20} className="group-active:scale-90" />
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="group-active:scale-90 size-6">
+  <path strokeLinecap="round" strokeLinejoin="round" d="M5 12h14" />
+</svg>
+
             </button>
             <button onClick={() => {
               if (fullScreen == null) {
@@ -181,12 +183,19 @@ export default function ResizableBox({
               }
             }} className="group relative cursor-pointer hover:bg-white/10 p-2.5 rounded hidden md:block">
               <span className='absolute scale-0 opacity-0 group-hover:scale-100 group-hover:opacity-100 transition duration-200 bottom-[120%] bg-[#111] text-white rounded-sm text-xs px-3 py-1 left-1/2 -translate-x-1/2'>Expand</span>
-              {fullScreen && <Minimize size={16} className="group-active:scale-90" />}
-              {!fullScreen && <Square size={16} className="group-active:scale-90" />}
+              {fullScreen &&  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="group-active:scale-90 size-6">
+  <path strokeLinecap="round" strokeLinejoin="round" d="M5 12h14" />
+</svg>}
+              {!fullScreen && <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="group-active:scale-90 size-6">
+  <path strokeLinecap="round" strokeLinejoin="round" d="M16.5 8.25V6a2.25 2.25 0 0 0-2.25-2.25H6A2.25 2.25 0 0 0 3.75 6v8.25A2.25 2.25 0 0 0 6 16.5h2.25m8.25-8.25H18a2.25 2.25 0 0 1 2.25 2.25V18A2.25 2.25 0 0 1 18 20.25h-7.5A2.25 2.25 0 0 1 8.25 18v-1.5m8.25-8.25h-6a2.25 2.25 0 0 0-2.25 2.25v6" />
+</svg>}
             </button>
             <button onClick={()=>setShow(false)} className="group relative cursor-pointer hover:bg-red-500/80 p-2 rounded">
               <span className='absolute scale-0 opacity-0 group-hover:scale-100 group-hover:opacity-100 transition duration-200 bottom-[120%] bg-[#111] text-white rounded-sm text-xs px-3 py-1 left-1/2 -translate-x-1/2'>Close</span>
-              <X size={20} className="group-active:scale-90" />
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor"className="size-6 group-active:scale-90">
+  <path strokeLinecap="round" strokeLinejoin="round" d="M6 18 18 6M6 6l12 12" />
+</svg>
+
             </button>
           </div>
         </div>

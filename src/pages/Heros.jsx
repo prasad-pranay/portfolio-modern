@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import CartoonWhiteboard from "../component/Whiteboard";
 import MusicCard from "../component/MusicCard";
+import TicTacToe from "../component/TicTacToe";
 
 const roles = [
   "Full Stack Developer.",
@@ -140,7 +141,7 @@ useEffect(() => {
             </button>
             <button
             onClick={()=>setCurrentSetterTab("contact")}
-              className="cursor-none target-hand text-xs tracking-[0.25em] uppercase px-7 py-3.5 border border-white/10 text-[#777] hover:text-[#f0ece4] hover:border-white/25 transition-all duration-300"
+              className="cursor-none target-hand text-xs tracking-[0.25em] uppercase px-7 py-3.5 border border-white/10 dark:text-white sm:dark:text-[#777] text-[#777] hover:text-[#f0ece4] hover:border-white/25 transition-all duration-300"
               style={{ fontFamily: "monospace" }}
             >
               Get in Touch
@@ -203,8 +204,15 @@ useEffect(() => {
       <div data-scroll data-scroll-repeat data-scroll-call="home" />
          {/* music card */}
           <div className="flex-col items-center justify-start absolute h-full w-full top-20 left-0 hidden md:flex">
+            <div className="relative z-[200]" style={{perspective:"1000px"}}>
             <MusicCard />
+            </div>
           </div>
+          {/* <div className="flex-col items-center justify-center absolute h-full w-full top-20 left-0 hidden md:flex" >
+            <div className="relative z-[200]" style={{perspective:"1000px"}}>
+            <TicTacToe />
+            </div>
+          </div> */}
     </section>
   );
 }

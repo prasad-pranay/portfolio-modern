@@ -45,7 +45,7 @@ export default function AboutMe({setShowPortfolio,setCurrentSetterTab}) {
                   Open to Internships
                 </p>
               </div>
-              <p className="text-xs text-[#555] leading-relaxed" style={{ fontFamily: "monospace" }}>
+              <p className="text-xs dark:text-white sm:dark:text-[#777] text-[#555] leading-relaxed" style={{ fontFamily: "monospace" }}>
                 CS student actively seeking summer / fall 2026 opportunities.
               </p>
             </div>
@@ -70,16 +70,16 @@ export default function AboutMe({setShowPortfolio,setCurrentSetterTab}) {
 
             {/* Bio */}
             <div className="space-y-5">
-              <p className="text-base text-[#aaa] leading-relaxed">
+              <p className="text-base dark:text-white sm:dark:text-[#aaa] text-[#aaa] leading-relaxed">
                 I'm a Computer Science BCA student currently in my last (6th) semester, driven by an insatiable curiosity for how things work — and an urge to build things that actually matter. Right now I'm in that exciting early chapter: learning fast, experimenting constantly, and turning ideas into real projects.
               </p>
-<p className="text-base text-[#666] leading-relaxed">
+<p className="text-base dark:text-white sm:dark:text-[#666] text-[#666] leading-relaxed">
   I have experience working with technologies like Python, MERN Stack, Flutter, and databases. I like solving problems through code and learning by creating practical projects instead of only studying theory.
 </p>
               {/* <p className="text-base text-[#666] leading-relaxed">
                 I don't have professional experience yet, but I believe in learning by doing. Every project I take on is a chance to go deeper — whether that's understanding a data structure, making a UI feel just right, or figuring out why something breaks at 2am.
               </p> */}
-              <p className="text-base text-[#666] leading-relaxed">
+              <p className="text-base dark:text-white sm:dark:text-[#666] text-[#666] leading-relaxed">
                 I'm actively looking for an internship where I can contribute, grow alongside experienced engineers, and prove that hunger and curiosity go a long way.
               </p>
             </div>
@@ -89,12 +89,12 @@ export default function AboutMe({setShowPortfolio,setCurrentSetterTab}) {
             {/* Currently + Interested In */}
             <div className="grid grid-cols-2 gap-6">
               <div>
-                <p className="text-[10px] tracking-widest text-[#444] uppercase mb-3" style={{ fontFamily: "monospace" }}>
+                <p className="text-[10px] tracking-widest dark:text-white sm:dark:text-[#444] text-[#444] uppercase mb-3" style={{ fontFamily: "monospace" }}>
                   Currently
                 </p>
                 <ul className="space-y-2">
                   {["Studying Computer Science", "Building personal projects", "Learning new tech daily"].map((item) => (
-                    <li key={item} className="flex items-start gap-2 text-sm text-[#777]">
+                    <li key={item} className="flex items-start gap-2 text-sm dark:text-white sm:dark:text-[#777] text-[#777]">
                       <span className="text-[#c9a96e] mt-0.5 text-xs">—</span>
                       {item}
                     </li>
@@ -102,12 +102,12 @@ export default function AboutMe({setShowPortfolio,setCurrentSetterTab}) {
                 </ul>
               </div>
               <div>
-                <p className="text-[10px] tracking-widest text-[#444] uppercase mb-3" style={{ fontFamily: "monospace" }}>
+                <p className="text-[10px] tracking-widest dark:text-white sm:dark:text-[#444] text-[#444] uppercase mb-3" style={{ fontFamily: "monospace" }}>
                   Interested In
                 </p>
                 <ul className="space-y-2">
                   {["Full-stack development", "Clean UI & design", "Open source"].map((item) => (
-                    <li key={item} className="flex items-start gap-2 text-sm text-[#777]">
+                    <li key={item} className="flex items-start gap-2 text-sm dark:text-white sm:dark:text-[#777] text-[#777]">
                       <span className="text-[#c9a96e] mt-0.5 text-xs">—</span>
                       {item}
                     </li>
@@ -127,7 +127,7 @@ export default function AboutMe({setShowPortfolio,setCurrentSetterTab}) {
               </button>
               <button
                 onClick={() => setShowPortfolio(true)}
-                className="text-xs tracking-[0.25em] cursor-none uppercase px-6 py-3 border border-white/10 text-[#777] hover:text-[#f0ece4] hover:border-white/30 target-hand transition-all duration-300"
+                className="text-xs tracking-[0.25em] cursor-none uppercase px-6 py-3 border border-white/10 dark:text-white sm:dark:text-[#777] text-[#777] hover:text-[#f0ece4] hover:border-white/30 target-hand transition-all duration-300"
                 style={{ fontFamily: "monospace" }}
               >
                 Resume ↓

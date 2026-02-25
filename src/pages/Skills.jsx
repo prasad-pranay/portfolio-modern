@@ -138,12 +138,11 @@ export default function Skills() {
                       key={skill}
                       onMouseEnter={() => setHoveredSkill(`${group.id}-${skill}`)}
                       onMouseLeave={() => setHoveredSkill(null)}
-                      className="text-xs px-4 py-2 border border-black/20 dark:border-white/20 transition-all duration-300 cursor-none target-hand"
+                      className={`${isHovered ? `text-${group.color}` : "text-[#666] dark:text-white sm:dark:dark:text-[#999]"} text-xs px-4 py-2 border border-black/20 dark:border-white/20 transition-all duration-300 cursor-none target-hand` }
                       style={{
                         fontFamily: "monospace",
                         letterSpacing: "0.08em",
                         borderColor: isHovered ? group.color : "rgba(255,255,255,0.08)",
-                        color: isHovered ? group.color : "#666",
                         background: isHovered ? `${group.color}0d` : "transparent",
                         boxShadow: isHovered ? `0 0 16px ${group.color}25` : "none",
                         transform: isHovered ? "translateY(-1px)" : "translateY(0)",
@@ -161,7 +160,7 @@ export default function Skills() {
         {/* Bottom count */}
         <div className="mt-12 pt-8 border-t border-white/6 flex items-center justify-between">
           <p
-            className="text-[10px] tracking-widest text-[#333] uppercase"
+            className="text-[10px] tracking-widest dark:text-white sm:dark:text-[#888] text-[#333] uppercase"
             style={{ fontFamily: "monospace" }}
           >
             Learning Constantly

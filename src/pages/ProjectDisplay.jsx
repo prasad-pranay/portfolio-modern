@@ -102,7 +102,7 @@ export default function ProjectDetail({ setProjectShow }) {
 
     return (
         <div
-            className="min-h-screen bg-[#0c0c0c] text-[#f0ece4] absolute top-0 left-0 w-screen h-screen flex flex-col"
+            className="min-h-screen bg-[#0c0c0c] text-[#f0ece4] absolute  top-0 left-0 w-screen h-screen flex flex-col"
             style={{ fontFamily: "'Georgia', 'Times New Roman', serif" }}
         >
             <div className="fixed bg-[#a287d5] blur blur-1 opacity-80 lg:opacity-100 pointer-events-none z-[0]" />
@@ -111,13 +111,13 @@ export default function ProjectDetail({ setProjectShow }) {
             <AnimatePresence>
 
                 {loading ? <>
-                    <motion.div initial={{ top: loading == 1 ? "100vh" : "-100vh", opacity: 0 }} animate={{ top: 0, opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: .5, delay: loading == 1 ? 0 : .5 }} className={`${loading == 1 ? "z-[100]" : "z-[150]"} absolute w-full h-full left-0 bg-white`}></motion.div>
-                    <motion.div initial={{ top: loading == 1 ? "100vh" : "-100vh", opacity: 0 }} animate={{ top: 0, opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: .5, delay: loading == 1 ? .5 : 0 }} className={`${loading == 1 ? "z-[100]" : "z-[100]"} absolute w-full h-full left-0 bg-black`}></motion.div>
+                    <motion.div initial={{ top: loading == 1 ? "100vh" : "-100vh", opacity: 0 }} animate={{ top: 0, opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: .5, delay: loading == 1 ? 0 : .5 }} className={`${loading == 1 ? "z-[1000]" : "z-[1500]"} absolute w-full h-full left-0 bg-white`}></motion.div>
+                    <motion.div initial={{ top: loading == 1 ? "100vh" : "-100vh", opacity: 0 }} animate={{ top: 0, opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: .5, delay: loading == 1 ? .5 : 0 }} className={`${loading == 1 ? "z-[1000]" : "z-[1000]"} absolute w-full h-full left-0 bg-black`}></motion.div>
                 </> : null}
             </AnimatePresence>
 
             {/* Top bar */}
-            <div className="sticky top-0 z-[150]  border-b border-white/6 px-6 md:px-16 py-4 flex items-center justify-between">
+            <div className="sticky top-0 z-[150] dark:bg-[#111]/20 border-b border-white/6 px-6 md:px-16 py-4 flex items-center justify-between">
                 <div className="flex items-center gap-3">
                     <span className="text-[10px] tracking-widest dark:text-[#ccc] text-[#444] uppercase" style={{ fontFamily: "monospace" }}>
                         {project.number}
@@ -133,7 +133,7 @@ export default function ProjectDetail({ setProjectShow }) {
                 </div>
             </div>
 
-            <div className="mx-auto px-6 md:px-16 py-16 space-y-20 z-[100] relative h-full  overflow-y-auto slim-scrollbar">
+            <div className="mx-auto px-6 md:px-16 py-16 space-y-20 z-[100] relative h-full dark:bg-[#111]/20  overflow-y-auto slim-scrollbar">
                 {/* go bakc button */}
                 <div onClick={() => {
                     setLoading(2); 
@@ -142,8 +142,8 @@ export default function ProjectDetail({ setProjectShow }) {
                     }, 1000);
                 }}
                     className="flex items-center gap-2 dark:bg-[#111]/10 backdrop-blur-sm dark:hover:bg-[#111]/30 w-max py-2 px-5 target-hand active:scale-90 transition duration-300 rounded-full">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" class="size-6">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
                     </svg><p>Go Back to Home Page</p>
 
                 </div>
@@ -224,8 +224,8 @@ export default function ProjectDetail({ setProjectShow }) {
                         {project.images.map((img, i) => {
                             if(img.includes(".mp4")){
                                 return <button onClick={() => setActiveImage(i)} className="relative h-full flex-1 py-5 items-center justify-center cursor-none target-hand bg-white dark:bg-black/40 flex flex-col">
-                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6 stroke-black dark:stroke-white">
-  <path stroke-linecap="round" stroke-linejoin="round" d="M5.25 5.653c0-.856.917-1.398 1.667-.986l11.54 6.347a1.125 1.125 0 0 1 0 1.972l-11.54 6.347a1.125 1.125 0 0 1-1.667-.986V5.653Z" />
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" class="size-6 stroke-black dark:stroke-white">
+  <path strokeLinecap="round" strokeLinejoin="round" d="M5.25 5.653c0-.856.917-1.398 1.667-.986l11.54 6.347a1.125 1.125 0 0 1 0 1.972l-11.54 6.347a1.125 1.125 0 0 1-1.667-.986V5.653Z" />
 </svg>
 {i === activeImage && (
                                     <div className="absolute inset-0 border-2 border-[#c9a96e]" />

@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
-import { ContactSvg, HomeSvg, MoonSvg, ProfileSvg, SunSvg } from './SvgComponent'
+import { ContactSvg, HomeSvg, ProfileSvg } from './SvgComponent'
 import { AnimatePresence, motion } from 'framer-motion';
 
 const DEFAULT_ITEMS = [

@@ -1,64 +1,8 @@
 import { useState, useRef, useEffect } from "react";
-import { AiSvg, CssSvg, ExpressSvg, ExtensionSvg, FirebaseSvg, HtmlSvg, IndexedDbSvg, JavascriptSvg, ModelSvg, MongoDbSvg, MysqlSvg, NodeJsSvg, PythonSvg, ReactSvg, RestApiSvg, SectionTitle, StarSvg, TailwindSvg } from '../component/SvgComponent'
+import { AiSvg, CssSvg, ExpressSvg, ExtensionSvg, FirebaseSvg, HtmlSvg, IndexedDbSvg, JavascriptSvg, ModelSvg, MongoDbSvg, MysqlSvg, NodeJsSvg, PythonSvg, ReactSvg, RestApiSvg, TailwindSvg } from '../component/SvgComponent'
 import { motion } from "framer-motion";
 
 
-// const projects = [
-//   {
-//     id: 1,
-//     number: "01",
-//     title: "Study Planner App",
-//     description:
-//       "A productivity tool built for students to organize their schedule, track deadlines, and manage tasks across subjects — all in one clean interface.",
-//     stack: ["React", "Tailwind CSS", "Firebase"],
-//     category: "Web App",
-//   },
-//   {
-//     id: 2,
-//     number: "02",
-//     title: "Algorithm Visualizer",
-//     description:
-//       "An interactive visualization tool that animates sorting and pathfinding algorithms step by step, built to make CS concepts more intuitive.",
-//     stack: ["JavaScript", "HTML Canvas", "CSS"],
-//     category: "Tool",
-//   },
-//   {
-//     id: 3,
-//     number: "03",
-//     title: "Weather Dashboard",
-//     description:
-//       "A minimal weather app that displays real-time forecasts, hourly breakdowns, and location-based data using the OpenWeather API.",
-//     stack: ["React", "REST API", "Chart.js"],
-//     category: "Web App",
-//   },
-//   {
-//     id: 4,
-//     number: "04",
-//     title: "CLI Task Manager",
-//     description:
-//       "A lightweight command-line task manager written in Python. Supports task creation, tagging, priority levels, and persistent storage.",
-//     stack: ["Python", "SQLite", "Typer"],
-//     category: "CLI Tool",
-//   },
-//   {
-//     id: 5,
-//     number: "05",
-//     title: "Portfolio Website",
-//     description:
-//       "This very portfolio — designed and built from scratch with a focus on minimal aesthetics, clean typography, and smooth interactions.",
-//     stack: ["React", "Tailwind CSS", "Vite"],
-//     category: "Design",
-//   },
-//   {
-//     id: 6,
-//     number: "06",
-//     title: "Chat Application",
-//     description:
-//       "A real-time chat app with room-based messaging, user authentication, and live typing indicators built using WebSockets.",
-//     stack: ["Node.js", "Socket.io", "MongoDB"],
-//     category: "Full Stack",
-//   },
-// ];
 const projects = [
     {category:"Web App", image:"/swello.png", videoSrc:"/swello.mp4", title:"Swellow", description:"A dynamic sports connection platform that helps players discover teammates, join matches, and build their local sports community effortlessly.", tag:"ongoing", skills:[ReactSvg, NodeJsSvg, ExpressSvg, MysqlSvg, MongoDbSvg] ,},
     {category:"Web App", image:"/curease.png", videoSrc:"/curease.mp4", title:"CurEase", description:"An AI-powered health-tech app that provides smart symptom-based disease detection, nutrition analysis, medical report tracking, and seamless doctor-patient interaction in one platform.", tag:"Nov 25", skills:[ReactSvg, TailwindSvg, ExpressSvg, NodeJsSvg, PythonSvg, MongoDbSvg, FirebaseSvg, AiSvg, ModelSvg] ,},
@@ -176,11 +120,10 @@ const [videoLoaded, setVideoLoaded] = useState(false);
   );
 };
 
-const categories = ["All", "Web App", "Tool", "CLI Tool", "Design", "Full Stack"];
+const categories = ["Web App", "Android App", "CLI Tools"];
 
 export default function Projects({setProjectShow}) {
   const [activeFilter, setActiveFilter] = useState("All");
-  const [hovered, setHovered] = useState(null);
 
   const filtered =
     activeFilter === "All"
@@ -311,9 +254,9 @@ export default function Projects({setProjectShow}) {
         ))}
           {/* Empty state */}
           {filtered.length === 0 && (
-            <div className="col-span-3 py-24 flex items-center justify-center bg-[#0c0c0c]">
-              <p className="text-xs text-[#444] tracking-widest uppercase" style={{ fontFamily: "monospace" }}>
-                No projects in this category yet.
+            <div className="col-span-3 py-24 flex items-center justify-center">
+              <p className="text-xs dark:text-[#ccc] text-[#444] tracking-widest uppercase" style={{ fontFamily: "monospace" }}>
+                Work under progress. I will upload them soon.
               </p>
             </div>
           )}

@@ -8,24 +8,24 @@ import { NotificationProvider } from './tool/Notification'
 
 const App = () => {
 
-    const [loading,setshowLoading] = useState(true)
-    useEffect(() => {
-      setTimeout(() => {
-        setshowLoading(false)
-      }, 3800);
-      // }, 0);
-    }, [])
-    
+  const [loading, setshowLoading] = useState(true)
+  useEffect(() => {
+    setTimeout(() => {
+      setshowLoading(false)
+    // }, 3800);
+    }, 0);
+  }, [])
+
   return (
     <NotificationProvider>
-    <AnimatePresence>
-      {loading && <LoadingPage/>}
-    </AnimatePresence>
-    {!loading && 
-    <CallerPage/>
-    }
+      <AnimatePresence>
+        {loading && <LoadingPage />}
+      </AnimatePresence>
+      {!loading &&
+        <CallerPage />
+      }
 
-    {/* background blur */}
+      {/* background blur */}
       <Noise
         patternSize={250}
         patternScaleX={2}

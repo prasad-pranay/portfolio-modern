@@ -1,6 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { gsap } from 'gsap';
-import OrbitImages from '../component/CircularGallery';
 import "./extra.css"
 import { motion } from 'framer-motion';
 import VoiceDialogCard from '../component/VoiceCard';
@@ -222,27 +221,7 @@ const LeftCard = ({ showLeftside, setShowleftside, chatHistory, setChatHistory }
           {Object.keys(chatHistory).length == 0 ? <div className='flex flex-col justify-center h-full'>
             <div className='relative h-50 flex flex-col items-center justify-center'>
               <img src="/bot.gif" alt="" className=' h-50' />
-              {/* <div className='absolute top-10 left-0 -translate-y-1/2 w-full h-full'>
-                <OrbitImages
-                  shape="ellipse"
-                  radiusX={500}
-                  radiusY={200}
-                  rotation={-8}
-                  duration={30}
-                  baseWidth={1000}
-                  itemSize={80}
-                  responsive={true}
-                  radius={4}
-                  direction="normal"
-                  showPath
-                  paused={false}
-                  items={[
-                    <MyCard color="bg-blue-300/50" text="Skills" />,
-                    <MyCard color="bg-red-300/50" text="Hobbies" />,
-                    <MyCard color="bg-yellow-300/50" text="Projects" />,
-                    <MyCard color="bg-green-300/50" text="Skills" />
-                  ]} />
-              </div> */}
+              
             </div>
             <ReverseMarquee SetMsgText={SetMsgText} />
             <ReverseMarquee2 SetMsgText={SetMsgText} />

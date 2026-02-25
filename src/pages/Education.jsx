@@ -123,17 +123,17 @@ export default function Education() {
           {/* Meta */}
           <div className="flex flex-wrap gap-x-8 gap-y-2 mb-8 text-xs text-[#666]" style={{ fontFamily: "monospace" }}>
             <span className="flex items-center gap-2">
-              <span className="text-[#444]">School</span>
-              <span className="text-[#222] dark:text-[#aaa]">{selected.school}</span>
+              <span className="dark:text-white sm:dark:text-[#444] text-[#444]">School</span>
+              <span className="text-[#222] dark:text-[#ccc] sm:dark:text-[#aaa]">{selected.school}</span>
             </span>
             <span className="flex items-center gap-2">
-              <span className="text-[#444]">Location</span>
-              <span className="text-[#222] dark:text-[#aaa]">{selected.location}</span>
+              <span className="dark:text-white sm:dark:text-[#444] text-[#444]">Location</span>
+              <span className="text-[#222] dark:text-[#ccc] sm:dark:text-[#aaa]">{selected.location}</span>
             </span>
             {selected.gpa && (
               <span className="flex items-center gap-2">
-                <span className="text-[#444]">GPA</span>
-                <span className="text-[#222] dark:text-[#aaa]">{selected.gpa}</span>
+                <span className="dark:text-white sm:dark:text-[#444] text-[#444]">GPA</span>
+                <span className="text-[#222] dark:text-[#ccc] sm:dark:text-[#aaa]">{selected.gpa}</span>
               </span>
             )}
           </div>
@@ -141,7 +141,7 @@ export default function Education() {
           {/* Thesis */}
           {selected.thesis && (
             <div className="mb-8 pl-4 border-l border-white/10">
-              <p className="text-[10px] uppercase tracking-widest text-[#555] mb-1" style={{ fontFamily: "monospace" }}>
+              <p className="text-[10px] uppercase tracking-widest dark:text-white sm:dark:text-[#555] text-[#555] mb-1" style={{ fontFamily: "monospace" }}>
                 Thesis / Focus
               </p>
               <p className="text-[#222] dark:text-[#bbb] text-sm leading-relaxed italic">
@@ -152,7 +152,7 @@ export default function Education() {
 
           {/* Highlights */}
           <div>
-            <p className="text-[10px] uppercase tracking-widest text-[#555] mb-3" style={{ fontFamily: "monospace" }}>
+            <p className="text-[10px] uppercase tracking-widest dark:text-white sm:dark:text-[#555] text-[#555] mb-3" style={{ fontFamily: "monospace" }}>
               Highlights
             </p>
             <div className="flex flex-wrap gap-2">

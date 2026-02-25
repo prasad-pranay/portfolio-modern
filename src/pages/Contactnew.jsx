@@ -73,7 +73,7 @@ export default function ContactMe() {
 
             {/* Email direct */}
             <div>
-              <p className="text-[10px] tracking-widest dark:text-[#999] text-[#444] uppercase mb-3" style={{ fontFamily: "monospace" }}>
+              <p className="text-[10px] tracking-widest dark:text-white sm:dark:text-[#aaa] text-[#444] uppercase mb-3" style={{ fontFamily: "monospace" }}>
                 Or reach me directly
               </p>
               <button
@@ -85,7 +85,7 @@ export default function ContactMe() {
 
               {/* Socials */}
               <div className="mt-10 space-y-4">
-                <p className="text-[10px] tracking-widest text-[#444] uppercase mb-4" style={{ fontFamily: "monospace" }}>
+                <p className="text-[10px] tracking-widest dark:text-white sm:dark:text-[#444] text-[#444] uppercase mb-4" style={{ fontFamily: "monospace" }}>
                   Find me on
                 </p>
                 {socials.map((s) => (
@@ -96,11 +96,11 @@ export default function ContactMe() {
                     rel="noopener noreferrer"
                     className="cursor-none target-hand group flex items-center justify-between border-b border-white/6 pb-3 hover:border-[#c9a96e]/30 transition-all duration-300"
                   >
-                    <span className="text-sm text-[#666] group-hover:text-[#f0ece4] transition-colors duration-300">
+                    <span className="text-sm dark:text-[#ccc] sm:dark:text-[#666] text-[#666] group-hover:text-[#f0ece4] transition-colors duration-300">
                       {s.label}
                     </span>
                     <span
-                      className="text-xs text-[#444] group-hover:text-[#c9a96e] transition-colors duration-300"
+                      className="text-xs dark:text-[#aaa] sm:dark:text-[#444] text-[#444] group-hover:text-[#c9a96e] transition-colors duration-300"
                       style={{ fontFamily: "monospace" }}
                     >
                       {s.handle} →
@@ -135,7 +135,7 @@ export default function ContactMe() {
                 <div className={`border-b transition-colors duration-300 ${focused === "name" ? "border-[#c9a96e]/50" : "border-white/6"}`}>
                   <div className="px-6 pt-5 pb-1">
                     <label
-                      className="text-[10px] tracking-widest dark:text-[#999] text-[#444] uppercase block mb-2"
+                      className="text-[10px] tracking-widest dark:text-[#eee] sm:dark:text-[#999] text-[#444] uppercase block mb-2"
                       style={{ fontFamily: "monospace" }}
                     >
                       Name
@@ -144,12 +144,13 @@ export default function ContactMe() {
                       type="text"
                       required
                       name="contact-name-input"
+                      autoComplete="off"
                       value={form.name}
                       onChange={(e) => setForm({ ...form, name: e.target.value })}
                       onFocus={() => setFocused("name")}
                       onBlur={() => setFocused(null)}
                       placeholder="Your name"
-                      className="cursor-none target-text w-full bg-transparent dark:placeholder-[#666] text-[#f0ece4] text-sm pb-3 outline-none placeholder-[#333] focus:placeholder-[#555] transition-colors"
+                      className="cursor-none target-text w-full bg-transparent dark:placeholder-[#aaa] sm:dark:placeholder-[#666] text-[#f0ece4] text-sm pb-3 outline-none placeholder-[#333] focus:placeholder-[#555] transition-colors"
                     />
                   </div>
                 </div>
@@ -158,7 +159,7 @@ export default function ContactMe() {
                 <div className={`border-b transition-colors duration-300 ${focused === "email" ? "border-[#c9a96e]/50" : "border-white/6"}`}>
                   <div className="px-6 pt-5 pb-1">
                     <label
-                      className="text-[10px] tracking-widest dark:text-[#999] text-[#444] uppercase block mb-2"
+                      className="text-[10px] tracking-widest dark:text-[#eee] sm:dark:text-[#999] text-[#444] uppercase block mb-2"
                       style={{ fontFamily: "monospace" }}
                     >
                       Email
@@ -166,13 +167,16 @@ export default function ContactMe() {
                     <input
                       type="email"
                       required
+                      autoComplete="off"
+                      autoCorrect="off" 
+                      spellCheck="false"
                       name="contact-name-email"
                       value={form.email}
                       onChange={(e) => setForm({ ...form, email: e.target.value })}
                       onFocus={() => setFocused("email")}
                       onBlur={() => setFocused(null)}
                       placeholder="your@email.com"
-                      className="w-full cursor-none target-text  bg-transparent dark:placeholder-[#666] text-[#f0ece4] text-sm pb-3 outline-none placeholder-[#333] focus:placeholder-[#555] transition-colors"
+                      className="w-full cursor-none target-text  bg-transparent dark:placeholder-[#aaa] sm:dark:placeholder-[#666] text-[#f0ece4] text-sm pb-3 outline-none placeholder-[#333] focus:placeholder-[#555] transition-colors"
                     />
                   </div>
                 </div>
@@ -181,7 +185,7 @@ export default function ContactMe() {
                 <div className={`border-b transition-colors duration-300 ${focused === "message" ? "border-[#c9a96e]/50" : "border-white/6"}`}>
                   <div className="px-6 pt-5 pb-1">
                     <label
-                      className="text-[10px] tracking-widest dark:text-[#999] text-[#444] uppercase block mb-2"
+                      className="text-[10px] tracking-widest dark:text-[#eee] sm:dark:text-[#999] text-[#444] uppercase block mb-2"
                       style={{ fontFamily: "monospace" }}
                     >
                       Message
@@ -195,7 +199,7 @@ export default function ContactMe() {
                       onFocus={() => setFocused("message")}
                       onBlur={() => setFocused(null)}
                       placeholder="What's on your mind?"
-                      className="w-full cursor-none target-text  bg-transparent dark:placeholder-[#666] text-[#f0ece4] text-sm pb-3 outline-none placeholder-[#333] focus:placeholder-[#555] transition-colors resize-none"
+                      className="w-full cursor-none target-text  bg-transparent dark:placeholder-[#aaa] sm:dark:placeholder-[#666] text-[#f0ece4] text-sm pb-3 outline-none placeholder-[#333] focus:placeholder-[#555] transition-colors resize-none"
                     />
                   </div>
                 </div>

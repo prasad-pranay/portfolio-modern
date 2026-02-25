@@ -1,15 +1,8 @@
-// import Contact from './pages/Contact'
-// import Hero from './pages/Hero'
-// import Portfolio from './pages/Portfolio'
-// import Resume from './pages/Resume'
-// import ProjectDisplayScreen from './pages/ProjectDisplayScreen'
-
 import LeftCard from './pages/LeftCard'
 import { useEffect, useRef, useState } from "react";
 import LocomotiveScroll from "locomotive-scroll";
 import "locomotive-scroll/dist/locomotive-scroll.css";
 import BubbleMenu from './component/BubbleMenu'
-import CopySocialLink from './component/CopySocialLink'
 import { AnimatePresence } from 'framer-motion'
 import ResizableBox from './component/ResizableWindow'
 import gsap from 'gsap'
@@ -34,7 +27,6 @@ function CallerPage() {
   const [currentTab, setCurrentTab] = useState("home");
   const [currentTabSetter, setCurrentSetterTab] = useState("");
   const [isScrolling, setIsScrolling] = useState(false)
-  const [showLink, setShowLink] = useState({ x: null, y: null, link: null })
   const [projectShow, setProjectShow] = useState(false)
   const [showPortfolio, setShowPortfolio] = useState(false)
   const progressRef = useRef(null);
@@ -99,7 +91,7 @@ function CallerPage() {
     }, 500);
 
     return () => {
-      // clearTimeout(scrollTimeout);
+      clearTimeout(scrollTimeout);
       locoRef.current?.destroy();
       locoRef.current = null;
       ScrollTrigger.killAll();
@@ -118,10 +110,7 @@ function CallerPage() {
 
 
   const [chatHistory, setChatHistory] = useState({})
-
-
   const [showLeftside, setShowleftside] = useState(false)
-  const [leftSideExpanded,setLeftSideExpanded] = useState(false)
   const [showAiFeature,setAiFeature] = useState(false)
   useEffect(() => {
     setTimeout(() => {
@@ -139,27 +128,14 @@ function CallerPage() {
       
       {/* conent starts here */}
       <div className="bg-[var(--bg)] transition-bg duration-300 overflow-hidden flex flex-col lg:grid lg:grid-cols-[max-content_1fr] ">
-        {/* <div
-          id='profile'
-          className={`h-screen w-full lg:items-center justify-center relative hidden lg:flex ml-5 overflow-hidden transition duration-500`}
-          style={{
-            width: showLeftside ? "330px" : "0",
-            transition: "width 1s"
-          }}
-        > */}
-          <LeftCard showLeftside={showLeftside} setShowleftside={setShowleftside} chatHistory={chatHistory} setChatHistory={setChatHistory} setShowPortfolio={setShowPortfolio} setShowLink={setShowLink} setCurrentSetterTab={setCurrentSetterTab} />
-        {/* </div> */}
+          <LeftCard showLeftside={showLeftside} setShowleftside={setShowleftside} chatHistory={chatHistory} setChatHistory={setChatHistory} />
         <main ref={scrollRef} data-scroll-container id='right-container' className="overflow-hidden flex flex-col ">
           <HeroPage setCurrentSetterTab={setCurrentSetterTab} setShowPortfolio={setShowPortfolio}/>
-          {/* <Hero showLeftside={showLeftside} setCurrentSetterTab={setCurrentSetterTab} setShowPortfolio={setShowPortfolio} /> */}
           <Projects setProjectShow={setProjectShow} />
-          {/* <Portfolio setProjectShow={setProjectShow} /> */}
-          {/* <Resume scroller={scrollRef.current} /> */}
           <AboutMe setShowPortfolio={setShowPortfolio} setCurrentSetterTab={setCurrentSetterTab} />
           <Skills/>
           <Education/>
           <ContactMe/> 
-          {/* <Contact setShowLink={setShowLink} /> */}
         </main>
 
         
@@ -189,22 +165,16 @@ function CallerPage() {
         setCurrentSetterTab={setCurrentSetterTab}
         setShowleftside={setShowleftside}
       />
-      {/* copy like menu */}
-      <AnimatePresence>
-        {showLink.link &&
-          <CopySocialLink xPos={showLink.x} yPos={showLink.y} link={showLink.link} setShowLink={setShowLink} />}
-      </AnimatePresence>
 
       {/* project screen */}
       <AnimatePresence>
         {projectShow && <ProjectDetail setProjectShow={setProjectShow} />}
-        {/* {projectShow && <ProjectDisplayScreen setProjectShow={setProjectShow} />} */}
       </AnimatePresence>
 
       {/* my resume  */}
       <AnimatePresence>
         {showPortfolio && 
-          <ResizableBox setShow={setShowPortfolio} bgColor='#222' iconImage="/dp.jpg" title="Suraj's Resume" initialHeight={screenWidth < 600 ? window.innerHeight : window.innerHeight * 0.8} initialWidth={screenWidth < 600 ? screenWidth : screenWidth * 0.8} children={<iframe
+          <ResizableBox setShow={setShowPortfolio} bgColor='#222' iconImage="/dp.jpg" title="Pranay's Resume" initialHeight={screenWidth < 600 ? window.innerHeight : window.innerHeight * 0.8} initialWidth={screenWidth < 600 ? screenWidth : screenWidth * 0.8} children={<iframe
             src="/resume.pdf"
             className="h-full w-full border-none top-0 left-0"
             title="PDF Viewer"

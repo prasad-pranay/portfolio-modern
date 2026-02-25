@@ -169,12 +169,12 @@ class NotificationItem extends React.Component {
           {/* Close button */}
           <button
             onClick={this.dismiss}
+            className="cursor-none target-hand"
             style={{
               flexShrink: 0,
               color: "#444",
               background: "none",
               border: "none",
-              cursor: "pointer",
               padding: "2px",
               display: "flex",
               alignItems: "center",
