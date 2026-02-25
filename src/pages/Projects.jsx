@@ -32,7 +32,7 @@ const [videoLoaded, setVideoLoaded] = useState(false);
 
   return (
     <motion.div
-    onClick={()=>setProjectShow(true)}
+    // onClick={()=>setProjectShow(true)}
       initial={{ y: 30, opacity: 0 }}
       whileInView={{ y: 0, opacity: 1 }}
       exit={{ y: 30, opacity: 0 }}
