@@ -209,3 +209,14 @@ background-color: black;
   }
 
 }
+
+
+
+
+@keyframes cursor-idle {
+    from{transform: rotate(0deg);}
+    to{transform: rotate(360deg);}
+}
+.cursor-idle{
+  animation: cursor-idle 2s linear infinite;
+}

@@ -8,6 +8,22 @@ import { NotificationProvider } from './tool/Notification'
 
 const App = () => {
 
+  const [isFocused, setIsFocused] = useState(true);
+
+ useEffect(() => {
+    const onFocus = () => setIsFocused(true);
+    const onBlur = () => setIsFocused(false);
+
+    window.addEventListener("focus", onFocus);
+    window.addEventListener("blur", onBlur);
+
+    return () => {
+      window.removeEventListener("focus", onFocus);
+      window.removeEventListener("blur", onBlur);
+    };
+  }, []);
+
+
   const [loading, setshowLoading] = useState(true)
   useEffect(() => {
     setTimeout(() => {
@@ -35,7 +51,7 @@ const App = () => {
       />
 
       {/* animated cursor */}
-      <Cursor />
+      <Cursor isFocused={isFocused} />
     </NotificationProvider>
   )
 }

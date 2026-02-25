@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 
-const Cursor = () => {
+const Cursor = ({isFocused}) => {
   const dotRef = useRef(null);
     const [whichCursor,setWhichCursor] = useState("normal")
 
@@ -32,6 +32,18 @@ const Cursor = () => {
       });
     });
 
+    const textTarget = document.querySelectorAll(".target-text");
+
+    textTarget.forEach((el) => {
+      el.addEventListener("mouseenter", () => {
+          setWhichCursor("text")
+    });
+    
+    el.addEventListener("mouseleave", () => {
+        setWhichCursor("normal")
+      });
+    });
+
 
     return () => {
       window.removeEventListener("mousemove", moveCursor);
@@ -44,6 +56,8 @@ const Cursor = () => {
       style={{ mixBlendMode: "difference" }}
       className="pointer-events-none fixed top-0 left-0 rounded-full transform z-[20000] cursor hidden sm:block"
     >
+      <div className={`${isFocused ?"":"cursor-idle"}`}>
+
 {whichCursor=="normal" &&<svg viewBox="0 0 12 14" fill="none" className="size-5">
   <g transform="translate(-7, -6)">
   <path fillRule="evenodd" clipRule="evenodd" d="M13.405 17.374c-1.288 2.801-5.457 2.07-5.715-1.002l-.58-6.915c-.213-2.529 2.616-4.163 4.7-2.714l5.698 3.96c2.532 1.76 1.08 5.736-1.99 5.45l-.783-.072a1 1 0 0 0-1.001.578z" 
@@ -57,9 +71,10 @@ const Cursor = () => {
 </g>
 </svg>}
 
-{whichCursor=="text" && <svg viewBox="0 0 6 16" fill="#fff">
+{whichCursor=="text" && <svg viewBox="0 0 6 16" fill="#fff" className="size-5">
   <g transform="translate(-5,0)"> <path d="M5 2a.5.5 0 0 1 .5-.5c.862 0 1.573.287 2.06.566.174.099.321.198.44.286.119-.088.266-.187.44-.286A4.165 4.165 0 0 1 10.5 1.5a.5.5 0 0 1 0 1c-.638 0-1.177.213-1.564.434a3.49 3.49 0 0 0-.436.294V7.5H9a.5.5 0 0 1 0 1h-.5v4.272c.1.08.248.187.436.294.387.221.926.434 1.564.434a.5.5 0 0 1 0 1 4.165 4.165 0 0 1-2.06-.566A4.561 4.561 0 0 1 8 13.65a4.561 4.561 0 0 1-.44.285 4.165 4.165 0 0 1-2.06.566.5.5 0 0 1 0-1c.638 0 1.177-.213 1.564-.434.188-.107.335-.214.436-.294V8.5H7a.5.5 0 0 1 0-1h.5V3.228a3.49 3.49 0 0 0-.436-.294A3.166 3.166 0 0 0 5.5 2.5.5.5 0 0 1 5 2zm3.352 1.355zm-.704 9.29z"></path> </g>
 </svg>}
+  </div>
     </div>
   );
 };
