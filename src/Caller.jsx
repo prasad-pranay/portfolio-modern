@@ -15,6 +15,8 @@ import Projects from './pages/Projects'
 import HeroPage from './pages/Heros'
 import Skills from './pages/Skills'
 import ProjectDetail from './pages/ProjectDisplay'
+import ProjectScreen from './pages/ProjectPage';
+import ContextMenu from './component/ContextMenu';
 
 gsap.registerPlugin(ScrollTrigger, MotionPathPlugin);
 
@@ -117,6 +119,8 @@ function CallerPage() {
       setAiFeature(true)
     }, 2500);
   }, [])
+
+  const [dark, setDark] = useState(true);
   
   return (
     <>
@@ -137,6 +141,9 @@ function CallerPage() {
           <Education/>
           <ContactMe/> 
         </main>
+
+
+        <ContextMenu setShowPortfolio={setShowPortfolio} setShowleftside={setShowleftside} dark={dark} setDark={setDark} />
 
         
         {/* Subtle grid background */}
@@ -164,11 +171,12 @@ function CallerPage() {
         currentTab={currentTab}
         setCurrentSetterTab={setCurrentSetterTab}
         setShowleftside={setShowleftside}
+        setDark={setDark}
       />
 
       {/* project screen */}
       <AnimatePresence>
-        {projectShow && <ProjectDetail setProjectShow={setProjectShow} />}
+        {projectShow && <ProjectScreen setProjectShow={setProjectShow} />}
       </AnimatePresence>
 
       {/* my resume  */}

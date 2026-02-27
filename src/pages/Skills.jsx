@@ -85,7 +85,7 @@ export default function Skills() {
                 className={`cursor-none target-hand text-[10px] tracking-widest uppercase px-4 py-2 border transition-all duration-200 ${
                   activeGroup === g.id
                     ? "text-[#0c0c0c]"
-                    : "border-black/6 dark:border-white/6 text-[#444] dark:text-[#aaa] hover:text-[#777] hover:border-white/12"
+                    : "border-black/6 dark:border-white/6 text-[#444] dark:text-[#aaa] dark:hover:text-[#999] hover:text-[#777] hover:border-white/12"
                 }`}
                 style={
                   activeGroup === g.id
@@ -138,7 +138,7 @@ export default function Skills() {
                       key={skill}
                       onMouseEnter={() => setHoveredSkill(`${group.id}-${skill}`)}
                       onMouseLeave={() => setHoveredSkill(null)}
-                      className={`${isHovered ? `text-${group.color}` : "text-[#666] dark:text-white sm:dark:dark:text-[#999]"} text-xs px-4 py-2 border border-black/20 dark:border-white/20 transition-all duration-300 cursor-none target-hand` }
+                      className={`${isHovered ? `${"text-"+ group.color}  dark:text-white` : "text-[#666] dark:text-white sm:dark:dark:text-[#999]"} text-xs px-4 py-2 border border-black/20 dark:border-white/20 transition-all duration-300 cursor-none target-hand` }
                       style={{
                         fontFamily: "monospace",
                         letterSpacing: "0.08em",

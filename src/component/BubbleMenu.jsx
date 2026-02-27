@@ -57,7 +57,8 @@ export default function BubbleMenu({
   isScrolling,
   setCurrentSetterTab,
   currentTab,
-  setShowleftside
+  setShowleftside,
+  setDark
 }) {
   const sectionIcons = {
     profile: { icon: <ProfileSvg classname="stroke-black h-5 w-5" />, title: 'Profile' },
@@ -184,6 +185,11 @@ export default function BubbleMenu({
   }, [isMenuOpen, menuItems]);
 
   const [showOptions, setShowOptions] = useState(false)
+
+  function toggleTheme(){
+    setDark(prev=>!prev)
+    document.documentElement.classList.toggle("dark")
+  }
   return (
     <>
       {/* Workaround for silly Tailwind capabilities */}
@@ -286,7 +292,7 @@ export default function BubbleMenu({
             Pranay
           </p>
           <div className="absolute top-0 left-0 w-full h-full flex bg-white rounded-full items-center transition duration-300 opacity-0 scale-0 group-hover:scale-100 group-hover:opacity-100">
-            <button onClick={() => document.documentElement.classList.toggle("dark")} className='target-hand cursor-none relative flex flex-col gap-1 justify-center items-center group/first w-full hover:bg-[#111] h-full rounded-l-full'>
+            <button onClick={toggleTheme} className='target-hand cursor-none relative flex flex-col gap-1 justify-center items-center group/first w-full hover:bg-[#111] h-full rounded-l-full'>
               <svg fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="size-6 group-hover/first:stroke-white hidden dark:block">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M12 3v2.25m6.364.386-1.591 1.591M21 12h-2.25m-.386 6.364-1.591-1.591M12 18.75V21m-4.773-4.227-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0Z" />
               </svg>
@@ -311,7 +317,7 @@ export default function BubbleMenu({
           {/* this iwll be enabled on mouse click */}
           <AnimatePresence>
             {showOptions && <motion.div initial={{ scale: 0 }} animate={{ scale: 1 }} exit={{ scale: 0 }} className="sm:hidden absolute top-0 left-0 w-full h-full flex bg-white rounded-full items-center transition duration-300">
-              <button onClick={() => document.documentElement.classList.toggle("dark")} className='target-hand cursor-none relative flex flex-col gap-1 justify-center items-center group/first w-full'>
+              <button onClick={toggleTheme} className='target-hand cursor-none relative flex flex-col gap-1 justify-center items-center group/first w-full'>
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="size-6">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M12 3v2.25m6.364.386-1.591 1.591M21 12h-2.25m-.386 6.364-1.591-1.591M12 18.75V21m-4.773-4.227-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0Z" />
                 </svg>

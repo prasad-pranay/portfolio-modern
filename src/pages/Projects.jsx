@@ -123,7 +123,7 @@ const [videoLoaded, setVideoLoaded] = useState(false);
 const categories = ["Web App", "Android App", "CLI Tools"];
 
 export default function Projects({setProjectShow}) {
-  const [activeFilter, setActiveFilter] = useState("All");
+  const [activeFilter, setActiveFilter] = useState("Web App");
 
   const filtered =
     activeFilter === "All"

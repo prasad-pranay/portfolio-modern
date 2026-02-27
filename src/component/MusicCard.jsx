@@ -134,7 +134,10 @@ export default function MusicCard() {
   // };
 
   return (
-    <div
+    <motion.div
+    initial={{scale:0,x:"80%"}}
+    animate={{scale:1,x:"0px"}}
+    exit={{scale:0,x:"80%"}}
       className="z-[200]"
       style={{
             transform: "rotateX(0deg) rotateY(30deg) rotateZ(1deg)",
@@ -342,6 +345,6 @@ export default function MusicCard() {
           to { transform: rotate(360deg); }
         }
       `}</style>
-    </div>
+    </motion.div>
   );
 }
