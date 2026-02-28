@@ -99,7 +99,7 @@ useEffect(() => {
 
           {/* Name */}
           <div className={`transition-all duration-700 delay-200 ${mounted ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}>
-            <h1
+            <h2
               className="font-normal text-[#222] dark:text-[#f0ece4] leading-[0.95]"
               style={{ fontSize: "clamp(3rem, 8vw, 7rem)", letterSpacing: "-0.03em" }}
             >
@@ -107,7 +107,7 @@ useEffect(() => {
               <br />
               <span className="italic text-[#c9a96e]">Developer</span>
               <span className="dark:text-[#ccc] text-[#2a2a2a]">.</span>
-            </h1>
+            </h2>
           </div>
 
           {/* Typewriter role */}

@@ -158,7 +158,7 @@ export default function ProjectDetail({ setProjectShow }) {
                         </span>
                     </div>
 
-                    <h1
+                    <h2
                         className="font-normal leading-[1.0]"
                         style={{ fontSize: "clamp(2.8rem, 7vw, 6rem)", letterSpacing: "-0.03em" }}
                     >
@@ -169,7 +169,7 @@ export default function ProjectDetail({ setProjectShow }) {
                                 <span key={i}>{word} </span>
                             )
                         )}
-                    </h1>
+                    </h2>
 
                     <p className="text-base dark:text-[#aaa] text-[#666] max-w-xl leading-relaxed">{project.tagline}</p>
 

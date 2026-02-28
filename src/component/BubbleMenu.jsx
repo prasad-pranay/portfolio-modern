@@ -288,9 +288,9 @@ export default function BubbleMenu({
           </>
           }
 
-          <p className='font-bold bg-white group rounded-3xl px-5 py-3 relative active:scale-90 transition-transform duration-100 '>
+          <H1 className='font-bold bg-white group rounded-3xl px-5 py-3 relative active:scale-90 transition-transform duration-100 '>
             Pranay
-          </p>
+          </H1>
           <div className="absolute top-0 left-0 w-full h-full flex bg-white rounded-full items-center transition duration-300 opacity-0 scale-0 group-hover:scale-100 group-hover:opacity-100">
             <button onClick={toggleTheme} className='target-hand cursor-none relative flex flex-col gap-1 justify-center items-center group/first w-full hover:bg-[#111] h-full rounded-l-full'>
               <svg fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="size-6 group-hover/first:stroke-white hidden dark:block">

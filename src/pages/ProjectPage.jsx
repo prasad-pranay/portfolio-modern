@@ -158,9 +158,9 @@ export default function ProjectScreen({setProjectShow}) {
         {/* ── Hero ── */}
         <header className="mb-10">
           <p className="hero-in text-[11px] tracking-[0.35em] text-stone-600 uppercase mb-4">Project</p>
-          <h1 className="serif hero-in-2 text-6xl md:text-7xl font-normal text-stone-100 leading-none mb-3">
+          <h2 className="serif hero-in-2 text-6xl md:text-7xl font-normal text-stone-100 leading-none mb-3">
             {project.title}
-          </h1>
+          </h2>
           <p className="hero-in-3 text-stone-500 text-base font-light mt-4 max-w-md leading-relaxed">
             {project.tagline}
           </p>
